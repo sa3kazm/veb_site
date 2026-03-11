@@ -3,119 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Основи веб-дизайну</title>
-    <link rel="stylesheet" href="style.css">
+    <title>ITveb Academy | Навчання майбутнього</title>
+    <link rel="stylesheet" href="veb1.css">
 </head>
 <body>
 
-    <header>
-        <div class="container header-content">
-            <div class="logo">■ Logo</div>
-            <nav>
-                <a href="#">Про курс</a>
-                <a href="#">Програма</a>
-                <a href="#">Відгуки</a>
-                <a href="#">Контакти</a>
-                <button class="btn-sm">Записатися</button>
-            </nav>
-        </div>
-    </header>
-
-    <section class="hero container">
-        <div class="hero-text">
-            <h1>Основи веб-дизайну</h1>
-            <p>Дізнайтесь, як створювати сучасні та привабливі сайти!</p>
-            <button class="btn-lg">Записатися</button>
-        </div>
-        <div class="hero-image">
-            <div class="browser-mockup">
-                <div class="dots"><span></span><span></span><span></span></div>
-                <div class="mockup-content">
-                    <div class="mockup-img"></div>
-                    <div class="mockup-lines">
-                        <div class="line"></div><div class="line"></div>
-                        <div class="line-short"></div>
+<header>
+    <div class="container header-content">
+        <div class="header-left-group">
+           <a href="#" class="logo-link">
+    <img src="logo.png" alt="ITveb Academy Logo" class="main-logo">
+</a>
+            <nav class="main-nav">
+                <div class="nav-item">
+                    <a href="#">Курси <span class="arrow">▾</span></a>
+                    <div class="dropdown">
+                        <a href="#">HTML і CSS</a>
+                        <a href="#">Python</a>
+                        <a href="#">C++</a>
+                        <a href="#">Soft skils</a>
+                        <a href="#">Дизайн</a>
+                        <a href="#">Англійська мова</a>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="program container">
-        <h2 class="section-title">Програма курсу</h2>
-        <div class="grid-3">
-            <div class="card">
-                <h3>Основи дизайну</h3>
-                <p>Основи композиції та кольору</p>
-            </div>
-            <div class="card">
-                <h3>Робота в Figma</h3>
-                <p>Навчання роботи в Figma</p>
-            </div>
-            <div class="card">
-                <h3>UX/UI Принципи</h3>
-                <p>Основи зручності та навігації</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="reviews container">
-        <h2 class="section-title">Відгуки студентів</h2>
-        <div class="grid-3">
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="avatar"></div>
-                    <span class="badge">Відгук студента</span>
+                <div class="nav-item">
+                    <a href="#">Про академію <span class="arrow">▾</span></a>
+                    <div class="dropdown">
+                        <a href="#">Вакансії</a>
+                        <a href="#">Відгуки</a>
+                        <a href="#">Про нас</a>
+                    </div>
                 </div>
-                <div class="lines"><div></div><div></div><div></div></div>
-                <div class="stars">★★★★★</div>
+
+                <div class="nav-item"><a href="#">Контакти</a></div>
+            </nav>
+        </div>
+        <div class="header-right-group">
+            
+            
+        </div>
+    </div>
+</header>
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <h1>ITveb Academy</h1>
+            <p>Якісне навчання IT-спеціальностям для дорослих та дітей у Львові</p>
+        </div>
+    </div>
+</section>
+
+<main class="container main-content">
+    
+    <section class="course-section">
+        <h2 class="section-title">Освіта для дорослих</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <h3>Програмування</h3>
+                <img src="https://fsx3.itstep.org/api/v1/files/kxofMNzJTaiiuo3CQbouNSeiOXw-osRX?inline=true&f=webp&h=515" class="course-img">
             </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="avatar"></div>
-                    <span class="badge">Відгук студента</span>
-                </div>
-                <div class="lines"><div></div><div></div><div></div></div>
-                <div class="stars">★★★★★</div>
+            <div class="course-card">
+                <h3>Дизайн</h3>
+                <img src="https://fsx3.itstep.org/api/v1/files/06QVkKjTnohtNiuEGZEhQPtdJxux0YYO?inline=true&f=webp&h=515" class="course-img">
             </div>
-            <div class="review-card">
-                <div class="review-header">
-                    <div class="avatar"></div>
-                    <span class="badge">Відгук студента</span>
-                </div>
-                <div class="lines"><div></div><div></div><div></div></div>
-                <div class="stars">★★★★★</div>
+            <div class="course-card">
+                <h3>Англійська</h3>
+                <img src="https://lviv.itstep.org/dist/images/home/redesign/univer-icon.webp" class="course-img">
             </div>
         </div>
     </section>
 
-    <section class="registration container">
-        <div class="form-card">
-            <h3>Запис на курс</h3>
-            <form>
-                <input type="text" placeholder="Ім'я">
-                <input type="email" placeholder="Email">
-                <input type="tel" placeholder="Телефон">
-                <button type="submit" class="btn-form">Зареєструватися</button>
-            </form>
+    <section class="course-section">
+        <h2 class="section-title">Освіта для дітей</h2>
+        <div class="course-grid">
+            <div class="course-card">
+                <h3>IT-програмування</h3>
+                <img src="https://lviv.itstep.org/dist/images/education-children-new/it_for_children_m.webp" class="course-img">
+            </div>
+            <div class="course-card">
+                <h3>Soft skils</h3>
+                <img src="https://lviv.itstep.org/dist/images/education-children-new/soft_skills_m.webp" class="course-img">
+            </div>
         </div>
     </section>
 
-    <footer>
-        <div class="container footer-content">
-            <div class="contacts">
-                <h4>Контакти</h4>
-                <p>Телефон</p>
-                <p>Email</p>
-            </div>
-            <div class="socials">
-                <span>f</span>
-                <span>ig</span>
-                <span>tg</span>
+    <section class="help-section">
+        <div class="help-container container">
+            <div class="help-card">
+                <div class="help-text-content">
+                    <h2 class="help-title">Допоможемо у виборі!</h2>
+                    <p class="help-description">
+                        Якщо у вас є питання про курси або ви не знаєте, що вибрати, залиште свій номер, ми зателефонуємо та детально проконсультуємо.
+                    </p>
+                    <div class="help-action-wrapper">
+                        <button class="help-submit-btn">Залишити заявку</button>
+                    </div>
+                </div>
+                <div class="help-visuals">
+                    <div class="help-icon help-question">?</div>
+                    <div class="help-icon help-phone">📞</div>
+                </div>
             </div>
         </div>
-        <div class="copyright">© 2023 Всі права захищені</div>
-    </footer>
+    </section>
+
+    <section class="reviews-section">
+        <h2 class="section-title">Відгуки наших студентів</h2>
+        <div class="reviews-grid" id="reviewsContainer">
+        
+    <div class="review-card"><h3>Олександр</h3><p>Курс по C++ просто топ! Нарешті розібрався з динамічними масивами.</p></div>
+    <div class="review-card"><h3>Марія</h3><p>Дуже подобається дизайн в AutoCAD. Викладачі пояснюють все доступно.</p></div>
+    <div class="review-card"><h3>Дмитро</h3><p>Навчаюсь на HTML/CSS. Вже зробив свій перший лендинг!</p></div>
+    
+    <div class="review-card hidden"><h3>Назар</h3><p>Найкраща академія у Львові. Атмосфера в гуртожитку і на парах супер!</p></div>
+    <div class="review-card hidden"><h3>Олена</h3><p>Англійська мова для IT — це саме те, що я шукала. Дякую!</p></div>
+    <div class="review-card hidden"><h3>Ігор</h3><p>Дуже круті 3D іконки навчилися робити. Сайт виглядає стильно.</p></div>
+    
+    <div class="review-card hidden"><h3>Анна</h3><p>Син у захваті від дитячого програмування. Чекає кожне заняття.</p></div>
+    <div class="review-card hidden"><h3>Максим</h3><p>Якість фідбеку по домашках вражає. Це дуже допомагає розвиватись.</p></div>
+    <div class="review-card hidden"><h3>Юлія</h3><p>Раджу всім, хто хоче змінити професію. Тут дають реальні знання.</p></div>
+    
+    <div class="review-card hidden"><h3>Віктор</h3><p>Пройшов курс по Python. Тепер працюю джуном у львівській IT-компанії!</p></div>
+    <div class="review-card hidden"><h3>Софія</h3><p>Графічний дизайн тут викладають практики. Багато цікавих кейсів.</p></div>
+    <div class="review-card hidden"><h3>Артем</h3><p>Робототехніка для дітей — це майбутнє. Дитина сама збирає роботів!</p></div>
+    <div class="review-card hidden"><h3>Руслан</h3><p>Курс по Unreal Engine перевершив очікування. Створив свою першу гру за 3 місяці!</p></div>
+<div class="review-card hidden"><h3>Оксана</h3><p>Навчалася UI/UX дизайну. Портфоліо після курсу допомогло знайти перші замовлення на фрілансі.</p></div>
+<div class="review-card hidden"><h3>Павло</h3><p>Frontend-розробка — це драйв. Дякую менторам за терпіння та круті лайфхаки по JS.</p></div>
+
+<div class="review-card hidden"><h3>Христина</h3><p>Курси англійської тут — це не просто правила, а постійна практика. Рекомендую!</p></div>
+<div class="review-card hidden"><h3>Денис</h3><p>Вчив Java з нуля. Матеріал структурований, нічого зайвого, тільки те, що реально потрібно на роботі.</p></div>
+<div class="review-card hidden"><h3>Тетяна</h3><p>Мій син займається в Малій Академії. Тепер він не просто грає в Minecraft, а створює там свої світи!</p></div>
+</div>
+            
+        </div>
+        <div class="btn-container">
+            <button id="loadMoreBtn" class="load-more-btn">Показати ще</button>
+        </div>
+    </section>
+</main>
+
+<script>
+    // Шапка ховається при скролі
+    let lastScrollTop = 0;
+    const header = document.querySelector('header');
+    window.addEventListener('scroll', () => {
+        let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            header.style.transform = 'translateY(0)';
+        }
+        lastScrollTop = scrollTop;
+    });
+
+    // Логіка відгуків по 3 в ряд
+    document.getElementById('loadMoreBtn').addEventListener('click', function() {
+        const hiddenCards = Array.from(document.querySelectorAll('.review-card.hidden'));
+        const nextRow = hiddenCards.slice(0, 3);
+
+        nextRow.forEach((card, index) => {
+            setTimeout(() => {
+                card.classList.remove('hidden');
+                card.classList.add('show');
+            }, index * 150);
+        });
+
+        if (hiddenCards.length <= 3) {
+            this.style.display = 'none';
+        }
+    });
+</script>
 
 </body>
 </html>
