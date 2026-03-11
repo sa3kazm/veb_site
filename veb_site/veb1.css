@@ -1,0 +1,225 @@
+/* Базові стилі */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    color: #333;
+}
+
+body {
+    background-color: #f9f9f9;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* Шапка */
+header {
+    background: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.btn-sm {
+    background: #777;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-text h1 {
+    font-size: 36px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    display: inline-block;
+}
+
+.hero-text p {
+    margin-bottom: 25px;
+    color: #555;
+}
+
+.btn-lg {
+    background: #777;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Масштабування "браузера" на макеті */
+.browser-mockup {
+    background: #e0e0e0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 400px;
+    padding: 10px;
+}
+
+.dots span {
+    height: 8px;
+    width: 8px;
+    background: #bbb;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.mockup-content {
+    background: white;
+    margin-top: 10px;
+    padding: 15px;
+}
+
+.mockup-img {
+    height: 100px;
+    background: #ddd;
+    margin-bottom: 10px;
+}
+
+/* Сітки та Картки */
+.section-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+    .card h3 {
+        background: #eee;
+        padding: 10px;
+        font-size: 16px;
+    }
+
+    .card p {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+/* Відгуки */
+.review-card {
+    background: #eee;
+    padding: 20px;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.badge {
+    background: #ddd;
+    font-size: 12px;
+    padding: 5px 10px;
+}
+
+.review-card .lines div {
+    height: 4px;
+    background: #ccc;
+    margin-bottom: 6px;
+}
+
+.stars {
+    color: #777;
+    margin-top: 10px;
+}
+
+/* Форма */
+.form-card {
+    border: 1px solid #ccc;
+    padding: 25px;
+    max-width: 300px;
+    background: white;
+}
+
+form input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+}
+
+.btn-form {
+    width: 100%;
+    background: #777;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* Футер */
+footer {
+    border-top: 1px solid #ddd;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.socials span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: #777;
+    color: white;
+    text-align: center;
+    border-radius: 50%;
+    margin-left: 10px;
+    line-height: 30px;
+}
+
+.copyright {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    border-top: 1px solid #eee;
+}
