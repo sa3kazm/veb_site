@@ -422,3 +422,50 @@ section {
     padding-bottom: 150px; /* Дає запас скролу, щоб острівець встиг "побачити" секцію */
     scroll-margin-top: 120px;
 }
+/* --- СТИЛІ ДЛЯ НОВИХ КАРТОК З ЕМОДЗІ --- */
+.course-emoji {
+    position: absolute;
+    bottom: -15px;
+    right: 10px;
+    font-size: 110px; /* Робимо емодзі великими, як картинки */
+    z-index: 1;
+    filter: drop-shadow(-15px 15px 20px rgba(0,0,0,0.6));
+    transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.course-card:hover .course-emoji {
+    transform: scale(1.15) rotate(-10deg);
+}
+
+/* --- КНОПКА "НАЗАД" --- */
+.back-btn {
+    background: transparent;
+    color: #b0b8c1;
+    border: 1px solid #333;
+    padding: 12px 24px;
+    border-radius: 16px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.back-btn:hover {
+    background: #1a1a1a;
+    color: #fff;
+    border-color: #3b82f6;
+    transform: translateX(-5px); /* Легкий ефект руху назад при наведенні */
+}
+
+/* --- АНІМАЦІЯ ПОЯВИ (щоб зміна була плавною) --- */
+.fade-in-section {
+    animation: fadeInCourses 0.4s ease forwards;
+}
+
+@keyframes fadeInCourses {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}

@@ -79,36 +79,150 @@
 
 <main class="container main-content">
     
-    <section class="course-section">
-        <h2 class="section-title">Освіта для дорослих</h2>
+<section class="course-section">
+    <h2 class="section-title">Освіта для дорослих</h2>
+    
+    <div class="course-grid" id="main-categories">
+        <div class="course-card" id="btn-programming">
+            <h3>Програмування</h3>
+            <img src="https://fsx3.itstep.org/api/v1/files/kxofMNzJTaiiuo3CQbouNSeiOXw-osRX?inline=true&f=webp&h=515" class="course-img">
+        </div>
+        <div class="course-card" id="btn-design">
+            <h3>Дизайн</h3>
+            <img src="https://fsx3.itstep.org/api/v1/files/06QVkKjTnohtNiuEGZEhQPtdJxux0YYO?inline=true&f=webp&h=515" class="course-img">
+        </div>
+        <div class="course-card" id="btn-english">
+            <h3>Англійська</h3>
+            <img src="https://lviv.itstep.org/dist/images/home/redesign/univer-icon.webp" class="course-img">
+        </div>
+    </div>
+
+    <div id="programming-courses" style="display: none;">
+        <button id="btn-back-categories" class="back-btn">← Назад до категорій</button>
+        
         <div class="course-grid">
             <div class="course-card">
-                <h3>Програмування</h3>
-                <img src="https://fsx3.itstep.org/api/v1/files/kxofMNzJTaiiuo3CQbouNSeiOXw-osRX?inline=true&f=webp&h=515" class="course-img">
+                <h3>Java</h3>
+                <div class="course-emoji">☕</div>
             </div>
             <div class="course-card">
-                <h3>Дизайн</h3>
-                <img src="https://fsx3.itstep.org/api/v1/files/06QVkKjTnohtNiuEGZEhQPtdJxux0YYO?inline=true&f=webp&h=515" class="course-img">
+                <h3>Python</h3>
+                <div class="course-emoji">🐍</div>
             </div>
             <div class="course-card">
-                <h3>Англійська</h3>
-                <img src="https://lviv.itstep.org/dist/images/home/redesign/univer-icon.webp" class="course-img">
+                <h3>C++</h3>
+                <div class="course-emoji">⚙️</div>
+            </div>
+            <div class="course-card">
+                <h3>CSS/HTML</h3>
+                <div class="course-emoji">🌐</div>
             </div>
         </div>
-    </section>
+    </div>
+    <div id="design-courses" style="display: none;">
+        <button id="btn-back-design" class="back-btn">← Назад до категорій</button>
+        
+        <div class="course-grid">
+            <div class="course-card">
+                <h3>Autodesk 3ds Max</h3>
+                <div class="course-emoji">🧊</div>
+            </div>
+            <div class="course-card">
+                <h3>Autodesk Maya</h3>
+                <div class="course-emoji">🎬</div>
+            </div>
+            <div class="course-card">
+                <h3>UI/UX дизайн</h3>
+                <div class="course-emoji">📱</div>
+            </div>
+            <div class="course-card">
+                <h3>Graphic Design</h3>
+                <div class="course-emoji">🎨</div>
+            </div>
+        </div>
+    </div>
+    <div id="english-courses" style="display: none;">
+        <button id="btn-back-english" class="back-btn">← Назад до категорій</button>
+        
+        <div class="course-grid">
+            <div class="course-card">
+                <h3>Англійська для IT</h3>
+                <div class="course-emoji">💻</div>
+            </div>
+            <div class="course-card">
+                <h3>Бізнес англійська</h3>
+                <div class="course-emoji">💼</div>
+            </div>
+            <div class="course-card">
+                <h3>Розмовний інтенсив</h3>
+                <div class="course-emoji">🗣️</div>
+            </div>
+            <div class="course-card">
+                <h3>Граматика з нуля</h3>
+                <div class="course-emoji">📚</div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <section class="course-section">
         <h2 class="section-title">Освіта для дітей</h2>
-        <div class="course-grid">
-            <div class="course-card">
+        
+        <div class="course-grid" id="children-categories">
+            <div class="course-card" id="btn-kids-it">
                 <h3>IT-програмування</h3>
                 <img src="https://lviv.itstep.org/dist/images/education-children-new/it_for_children_m.webp" class="course-img">
             </div>
-            <div class="course-card">
-                <h3>Soft skils</h3>
+            <div class="course-card" id="btn-kids-soft">
+                <h3>Soft skills</h3>
                 <img src="https://lviv.itstep.org/dist/images/education-children-new/soft_skills_m.webp" class="course-img">
             </div>
         </div>
+
+        <div id="kids-it-courses" style="display: none;">
+            <button id="btn-back-kids-it" class="back-btn">← Назад до категорій</button>
+            
+            <div class="course-grid">
+                <div class="course-card">
+                    <h3>Мала Комп'ютерна Академія</h3>
+                    <div class="course-emoji">🎓</div>
+                </div>
+                <div class="course-card">
+                    <h3>IT-CТАРТ - підготовка початкових класів</h3>
+                    <div class="course-emoji">🚀</div>
+                </div>
+                <div class="course-card">
+                    <h3>Комп'ютерна Академія - пробні уроки</h3>
+                    <div class="course-emoji">🕹️</div>
+                </div>
+                <div class="course-card">
+                    <h3>Бізнес Академія: Цифровий менеджмент з AI</h3>
+                    <div class="course-emoji">🤖</div>
+                </div>
+            </div>
+        </div>
+        <div id="kids-soft-courses" style="display: none;">
+        <button id="btn-back-kids-soft" class="back-btn">← Назад до категорій</button>
+        
+        <div class="course-grid">
+            <div class="course-card">
+                <h3>Лідерство та комунікація</h3>
+                <div class="course-emoji">👑</div>
+            </div>
+            <div class="course-card">
+                <h3>Емоційний інтелект</h3>
+                <div class="course-emoji">🧠</div>
+            </div>
+            <div class="course-card">
+                <h3>Командна робота та проєкти</h3>
+                <div class="course-emoji">🤝</div>
+            </div>
+            <div class="course-card">
+                <h3>Ораторське мистецтво та YouTube</h3>
+                <div class="course-emoji">🎤</div>
+            </div>
+        </div>
+    </div>
     </section>
 
     <section class="help-section">
@@ -375,6 +489,114 @@ document.querySelectorAll('.faq-item').forEach(item => {
         item.classList.toggle('active');
     });
 });
+// 7. ЛОГІКА ПЕРЕМИКАННЯ КАТЕГОРІЙ І КУРСІВ
+const btnProgramming = document.getElementById('btn-programming');
+const mainCategories = document.getElementById('main-categories');
+const programmingCourses = document.getElementById('programming-courses');
+const btnBackCategories = document.getElementById('btn-back-categories');
+
+if (btnProgramming && mainCategories && programmingCourses && btnBackCategories) {
+    // Клік на "Програмування"
+    btnProgramming.addEventListener('click', () => {
+        mainCategories.style.display = 'none'; // Ховаємо основні
+        programmingCourses.style.display = 'block'; // Показуємо курси
+        programmingCourses.classList.add('fade-in-section'); // Плавна поява
+    });
+
+    // Клік на кнопку "Назад"
+    btnBackCategories.addEventListener('click', () => {
+        programmingCourses.style.display = 'none'; // Ховаємо курси
+        programmingCourses.classList.remove('fade-in-section');
+        mainCategories.style.display = 'grid'; // Повертаємо основні (тут grid!)
+        mainCategories.classList.add('fade-in-section'); // Плавна поява
+    });
+}
+// Логіка для карток "Дизайн"
+const btnDesign = document.getElementById('btn-design');
+const designCourses = document.getElementById('design-courses');
+const btnBackDesign = document.getElementById('btn-back-design');
+
+if (btnDesign && mainCategories && designCourses && btnBackDesign) {
+    // Клік на "Дизайн"
+    btnDesign.addEventListener('click', () => {
+        mainCategories.style.display = 'none'; // Ховаємо основні
+        designCourses.style.display = 'block'; // Показуємо курси дизайну
+        designCourses.classList.add('fade-in-section'); // Плавна поява
+    });
+
+    // Клік на кнопку "Назад"
+    btnBackDesign.addEventListener('click', () => {
+        designCourses.style.display = 'none'; // Ховаємо курси дизайну
+        designCourses.classList.remove('fade-in-section');
+        mainCategories.style.display = 'grid'; // Повертаємо основні 
+        mainCategories.classList.add('fade-in-section'); // Плавна поява
+    });
+}
+// Логіка для карток "Англійська"
+const btnEnglish = document.getElementById('btn-english');
+const englishCourses = document.getElementById('english-courses');
+const btnBackEnglish = document.getElementById('btn-back-english');
+
+if (btnEnglish && mainCategories && englishCourses && btnBackEnglish) {
+    // Клік на "Англійська"
+    btnEnglish.addEventListener('click', () => {
+        mainCategories.style.display = 'none'; // Ховаємо основні
+        englishCourses.style.display = 'block'; // Показуємо курси англійської
+        englishCourses.classList.add('fade-in-section'); // Плавна поява
+    });
+
+    // Клік на кнопку "Назад"
+    btnBackEnglish.addEventListener('click', () => {
+        englishCourses.style.display = 'none'; // Ховаємо курси англійської
+        englishCourses.classList.remove('fade-in-section');
+        mainCategories.style.display = 'grid'; // Повертаємо основні 
+        mainCategories.classList.add('fade-in-section'); // Плавна поява
+    });
+}
+// Логіка для карток "Освіта для дітей -> IT-програмування"
+const btnKidsIt = document.getElementById('btn-kids-it');
+const childrenCategories = document.getElementById('children-categories');
+const kidsItCourses = document.getElementById('kids-it-courses');
+const btnBackKidsIt = document.getElementById('btn-back-kids-it');
+
+if (btnKidsIt && childrenCategories && kidsItCourses && btnBackKidsIt) {
+    // Клік на "IT-програмування" (діти)
+    btnKidsIt.addEventListener('click', () => {
+        childrenCategories.style.display = 'none'; // Ховаємо основні дитячі картки
+        kidsItCourses.style.display = 'block'; // Показуємо детальні курси
+        kidsItCourses.classList.add('fade-in-section'); 
+    });
+
+    // Клік на кнопку "Назад"
+    btnBackKidsIt.addEventListener('click', () => {
+        kidsItCourses.style.display = 'none'; 
+        kidsItCourses.classList.remove('fade-in-section');
+        childrenCategories.style.display = 'grid'; // Повертаємо 2 основні картки
+        childrenCategories.classList.add('fade-in-section'); 
+    });
+}
+// Логіка для карток "Освіта для дітей -> Soft skills"
+const btnKidsSoft = document.getElementById('btn-kids-soft');
+// childrenCategories вже знайдений у попередньому кроці
+const kidsSoftCourses = document.getElementById('kids-soft-courses');
+const btnBackKidsSoft = document.getElementById('btn-back-kids-soft');
+
+if (btnKidsSoft && childrenCategories && kidsSoftCourses && btnBackKidsSoft) {
+    // Клік на "Soft skills" (діти)
+    btnKidsSoft.addEventListener('click', () => {
+        childrenCategories.style.display = 'none'; 
+        kidsSoftCourses.style.display = 'block'; 
+        kidsSoftCourses.classList.add('fade-in-section'); 
+    });
+
+    // Клік на кнопку "Назад"
+    btnBackKidsSoft.addEventListener('click', () => {
+        kidsSoftCourses.style.display = 'none'; 
+        kidsSoftCourses.classList.remove('fade-in-section');
+        childrenCategories.style.display = 'grid'; 
+        childrenCategories.classList.add('fade-in-section'); 
+    });
+}
 </script>
 
 </body>
