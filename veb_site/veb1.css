@@ -39,7 +39,7 @@ header {
 .header-left-group { display: flex; align-items: center; gap: 40px; }
 
 .main-logo {
-    height: 75px; /* Можеш підрегулювати висоту під себе */
+    height: 75px; 
     width: auto;
     display: block;
 }
@@ -51,7 +51,7 @@ header {
 }
 
 .main-logo:hover {
-    transform: scale(1.05); /* Легкий ефект при наведенні */
+    transform: scale(1.05); 
 }
 
 .logo-link {
@@ -87,11 +87,6 @@ header {
 }
 .dropdown a:hover { background: #2563eb; color: white; }
 
-.phone-btn {
-    background: #3b82f6; color: white; border: none;
-    padding: 10px 22px; border-radius: 8px; font-weight: bold; cursor: pointer;
-}
-
 /* --- HERO --- */
 .hero {
     height: 500px;
@@ -102,67 +97,65 @@ header {
 
 .hero-content h1 { font-size: 64px; margin-bottom: 10px; }
 
+/* --- ОСТРІВЕЦЬ НАВІГАЦІЇ --- */
+.sticky-nav-wrapper {
+    position: fixed;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%) translateY(-100px); 
+    width: auto;
+    z-index: 1001; 
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.sticky-nav-wrapper.visible {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.island-nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 8px 30px;
+    border-radius: 50px;
+    display: flex;
+    gap: 10px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+}
+
+.nav-anchor {
+    color: #1a1a1a;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.nav-anchor:hover {
+    color: #3b82f6;
+}
+
+.nav-anchor.active {
+    background: #000;
+    color: #fff !important;
+}
+
 /* --- КАРТКИ (ЗБІЛЬШЕНІ) --- */
-.course-section { margin: 100px 0; }
+.course-section, .reviews-section, .teachers-section, .benefits-section { margin: 100px 0; }
 .section-title { font-size: 42px; margin-bottom: 45px; font-weight: 700; }
-/* Сітка для курсів - 3 в ряд */
+
 .course-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Створює рівно 3 колонки */
-    gap: 30px; /* Відстань між картками */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
     margin-top: 40px;
 }
 
-.reviews-grid {
-    display: grid;
-    /* Створюємо 3 колонки, які займають однакову частину простору */
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 30px;
-    margin-top: 50px;
-    align-items: stretch; /* Це змусить картки в одному ряду бути однієї висоти */
-}
-
-.review-card {
-    background: #121212;
-    border: 1px solid #333;
-    border-radius: 20px;
-    padding: 35px;
-    transition: 0.3s;
-    
-    /* ВИДАЛИ width: 430px, якщо він там є! */
-    width: 100%; 
-    height: auto; 
-    display: flex;
-    flex-direction: column;
-}
-
-/* Щоб текст не злипався */
-.review-card p {
-    line-height: 1.5;
-    color: #e0e0e0;
-}
-/* Адаптація для планшетів (2 в ряд) */
-@media (max-width: 1200px) {
-    .course-grid, .reviews-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* Адаптація для телефонів (1 в ряд) */
-@media (max-width: 768px) {
-    .course-grid, .reviews-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .course-card {
-        width: 100%; /* Картка займає всю ширину на мобілці */
-    }
-}
-
-/* Виправлена картка курсу */
 .course-card {
-    /* width: 430px;  <-- ВИДАЛИ ЦЕ */
-    width: 100%;    /* Дозволь Grid керувати шириною */
+    width: 100%;  
     min-height: 280px; 
     border-radius: 32px;
     background: linear-gradient(135deg, #181a1d 0%, #101114 100%);
@@ -175,11 +168,6 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-}
-
-/* Додамо плавності картинкам */
-.course-img {
-    pointer-events: none; /* Щоб картинка не заважала клікати на картку */
 }
 
 .course-card:hover { transform: translateY(-15px); border-color: #3b82f6; box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
@@ -219,16 +207,31 @@ header {
 .help-question { width: 110px; height: 110px; background: #343D4A; font-size: 50px; left: 0; top: 10px; z-index: 1; }
 
 /* --- ВІДГУКИ --- */
-.reviews-section { margin: 100px 0 150px; }
-.reviews-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    margin-top: 50px;
+    align-items: stretch; 
+}
+
 .review-card {
     background: #121212;
     border: 1px solid #333;
     border-radius: 20px;
     padding: 35px;
     transition: 0.3s;
-    width: 100%; /* Картка сама розтягнеться на 1/3 ширини екрана */
+    width: 100%; 
+    height: auto; 
+    display: flex;
+    flex-direction: column;
 }
+
+.review-card p {
+    line-height: 1.5;
+    color: #e0e0e0;
+}
+
 .review-card h3 { color: #3b82f6; margin-bottom: 15px; }
 
 .review-card.hidden { display: none; opacity: 0; }
@@ -248,4 +251,174 @@ header {
     justify-content: center;
     width: 100%;
     margin-top: 50px;
+}
+
+/* --- ВИКЛАДАЧІ --- */
+.teachers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.teacher-card {
+    background: #121212;
+    border: 1px solid #333;
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.teacher-card:hover { border-color: #3b82f6; transform: translateY(-10px); }
+
+.teacher-photo-placeholder {
+    width: 120px;
+    height: 120px;
+    background-color: white;
+    border-radius: 50%;
+    margin-bottom: 25px;
+}
+
+.teacher-card h3 { font-size: 24px; margin-bottom: 10px; color: #fff; }
+.teacher-card p { color: #b0b0b0; font-size: 16px; font-weight: 500; }
+
+/* --- ПЕРЕВАГИ --- */
+.benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px 60px;
+    margin-top: 60px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.benefit-icon {
+    font-size: 32px;
+    width: 70px;
+    height: 70px;
+    background: rgba(59, 130, 246, 0.1); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    color: #3b82f6; 
+}
+
+.benefit-content h3 { font-size: 24px; margin-bottom: 8px; color: #fff; }
+.benefit-content p { color: #b0b0b0; font-size: 16px; max-width: 450px; }
+
+/* Адаптація для планшетів (2 в ряд) */
+@media (max-width: 1200px) {
+    .course-grid, .reviews-grid, .teachers-grid, .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Адаптація для телефонів (1 в ряд) */
+@media (max-width: 768px) {
+    .course-grid, .reviews-grid, .teachers-grid, .benefits-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .course-card {
+        width: 100%;
+    }
+}
+/* Додай це до свого CSS */
+
+/* Робимо секції помітнішими для скрипта */
+.course-section, 
+.help-section, 
+.reviews-section, 
+.teachers-section, 
+.benefits-section {
+    padding: 80px 0; /* Даємо простір всередині, щоб скрипт встигав спрацювати */
+    scroll-margin-top: 100px; /* Допомагає браузеру розуміти межі при скролі */
+    min-height: 400px; /* Гарантує, що секція не буде занадто низькою */
+}
+
+/* Прибираємо "перескакування" через марджини */
+section {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+
+/* --- FAQ СЕКЦІЯ --- */
+.faq-section {
+    margin: 100px auto;
+    max-width: 1000px; /* FAQ краще виглядає, коли воно трохи вужче за основний контент */
+}
+
+.faq-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.faq-item {
+    background: #121212;
+    border: 1px solid #333;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+.faq-question {
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.faq-question:hover {
+    background: #1a1a1a;
+}
+
+.faq-icon {
+    font-size: 24px;
+    color: #3b82f6;
+    transition: transform 0.4s ease;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+    background: #0d0d0d;
+    color: #b0b0b0;
+    padding: 0 30px;
+}
+
+.faq-answer p {
+    padding-bottom: 25px;
+}
+
+/* Стан при відкритті */
+.faq-item.active {
+    border-color: #3b82f6;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px; /* Достатньо для тексту */
+    padding-top: 10px;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg); /* Перетворюємо плюс на хрестик */
+    color: #ff4d4d;
+}
+#faq {
+    padding-bottom: 150px; /* Дає запас скролу, щоб острівець встиг "побачити" секцію */
+    scroll-margin-top: 120px;
 }
