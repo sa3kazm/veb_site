@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
@@ -11,9 +11,9 @@
 <header>
     <div class="container header-content">
         <div class="header-left-group">
-           <a href="#" class="logo-link">
-    <img src="logo.png" alt="ITveb Academy Logo" class="main-logo">
-</a>
+            <a href="#" class="logo-link">
+                <img src="logo.png" alt="ITveb Academy Logo" class="main-logo">
+            </a>
             <nav class="main-nav">
                 <div class="nav-item">
                     <a href="#">Курси <span class="arrow">▾</span></a>
@@ -39,9 +39,18 @@
                 <div class="nav-item"><a href="#">Контакти</a></div>
             </nav>
         </div>
+
         <div class="header-right-group">
-            
-            
+            <button id="login-btn-header" class="auth-btn-oval">Вхід / Реєстрація</button>
+            <div id="user-profile" class="profile-container" style="display: none;">
+                <div class="profile-avatar" id="user-avatar">?</div>
+                <span id="user-display-name">Користувач</span>
+                <div class="dropdown-profile">
+                    <a href="#" class="profile-dropdown-link">Мій профіль</a>
+                    <a href="#" class="profile-dropdown-link">Мої курси</a>
+                    <a href="#" id="logout-btn" class="profile-dropdown-link">Вийти</a>
+                </div>
+            </div>
         </div>
     </div>
 </header>
@@ -67,15 +76,7 @@
         </div>
     </div>
 </nav>
-<nav class="sticky-nav-wrapper" id="islandNav">
-    <div class="island-nav">
-        <a href=".course-section" class="nav-anchor">Курси</a>
-        <a href=".reviews-section" class="nav-anchor">Відгуки</a>
-        <a href="#teachers" class="nav-anchor">Викладачі</a>
-        <a href="#benefits" class="nav-anchor">Переваги</a>
-        <a href="#faq" class="nav-anchor">FAQ</a>
-    </div>
-</nav>
+
 
 <main class="container main-content">
     
@@ -346,6 +347,9 @@
                 </div>
             </div>
         </div>
+        <div class="btn-container" style="margin-top: 40px;">
+            <button type="button" class="submit-btn" id="open-reg-from-benefits">Зареєструватись</button>
+        </div>
     </section>
     <section id="faq" class="faq-section container">
     <h2 class="section-title">Часті запитання</h2>
@@ -390,7 +394,32 @@
             </div>
         </div>
     </div>
+    <div id="auth-modal" class="auth-modal-overlay hidden" aria-hidden="true">
+    <div class="auth-modal-content glass-effect">
+        <button id="close-modal-btn" class="close-btn">Назад</button>
+        <div class="auth-tabs">
+            <button id="tab-login" class="tab-btn active">Вхід</button>
+            <button id="tab-register" class="tab-btn">Реєстрація</button>
+        </div>
+        <div id="auth-error-message" class="error-text" style="color: #ff4d4d; text-align: center; margin-bottom: 10px;"></div>
+
+        <form id="form-login" class="auth-form active-form">
+            <input type="text" id="login-name" placeholder="Ім'я" required>
+            <input type="password" id="login-password" placeholder="Пароль" required>
+            <button type="button" class="submit-btn" id="mock-login-submit">Увійти</button>
+        </form>
+
+        <form id="form-register" class="auth-form hidden-form">
+            <input type="text" id="reg-name" placeholder="Ім'я" required>
+            <input type="password" id="reg-password" placeholder="Пароль" required>
+            <input type="password" id="reg-password-repeat" placeholder="Повторіть пароль" required>
+            <button type="button" class="submit-btn" id="mock-register-submit">Зареєструватись</button>
+        </form>
+    </div>
+</div>
+
 </section>
+
 
 </main>
 
@@ -470,7 +499,7 @@ navAnchors.forEach(anchor => {
     });
 });
 
-// 5. ВІДГУКИ: показати ще по 3 штуки
+
 document.getElementById('loadMoreBtn').addEventListener('click', function() {
     const hiddenCards = Array.from(document.querySelectorAll('.review-card.hidden'));
     hiddenCards.slice(0, 3).forEach((card, index) => {
@@ -482,25 +511,25 @@ document.getElementById('loadMoreBtn').addEventListener('click', function() {
     if (hiddenCards.length <= 3) this.style.display = 'none';
 });
 
-// 6. FAQ: акордеон
+
 document.querySelectorAll('.faq-item').forEach(item => {
     item.querySelector('.faq-question').addEventListener('click', () => {
         document.querySelectorAll('.faq-item').forEach(i => { if (i !== item) i.classList.remove('active'); });
         item.classList.toggle('active');
     });
 });
-// 7. ЛОГІКА ПЕРЕМИКАННЯ КАТЕГОРІЙ І КУРСІВ
+
 const btnProgramming = document.getElementById('btn-programming');
 const mainCategories = document.getElementById('main-categories');
 const programmingCourses = document.getElementById('programming-courses');
 const btnBackCategories = document.getElementById('btn-back-categories');
 
 if (btnProgramming && mainCategories && programmingCourses && btnBackCategories) {
-    // Клік на "Програмування"
+    
     btnProgramming.addEventListener('click', () => {
-        mainCategories.style.display = 'none'; // Ховаємо основні
-        programmingCourses.style.display = 'block'; // Показуємо курси
-        programmingCourses.classList.add('fade-in-section'); // Плавна поява
+        mainCategories.style.display = 'none'; 
+        programmingCourses.style.display = 'block'; 
+        programmingCourses.classList.add('fade-in-section'); 
     });
 
     // Клік на кнопку "Назад"
@@ -597,7 +626,216 @@ if (btnKidsSoft && childrenCategories && kidsSoftCourses && btnBackKidsSoft) {
         childrenCategories.classList.add('fade-in-section'); 
     });
 }
+
+// ========== АВТОРИЗАЦІЯ (localStorage) ==========
+const authModal = document.getElementById("auth-modal");
+const mainAuthBtn = document.getElementById("login-btn-header");
+const profile = document.getElementById("user-profile");
+const userAvatar = document.getElementById("user-avatar");
+const userDisplayName = document.getElementById("user-display-name");
+const closeModalBtn = document.getElementById("close-modal-btn");
+
+const STORAGE_KEY = "itveb_logged_user";
+const USERS_KEY = "itveb_registered_users";
+
+function getRegisteredUsers() {
+    try {
+        const data = JSON.parse(localStorage.getItem(USERS_KEY) || "[]");
+        return Array.isArray(data) ? data : [];
+    } catch { return []; }
+}
+
+function saveUser(name, password) {
+    const users = getRegisteredUsers();
+    if (!users.find(u => u.name.toLowerCase() === name.toLowerCase())) {
+        users.push({ name, password });
+        localStorage.setItem(USERS_KEY, JSON.stringify(users));
+    }
+}
+
+function getLoggedUser() {
+    try {
+        return JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+    } catch { return null; }
+}
+
+function setLoggedUser(name) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ name }));
+}
+
+function clearLoggedUser() {
+    localStorage.removeItem(STORAGE_KEY);
+}
+
+function showProfile(name) {
+    mainAuthBtn.style.display = "none";
+    userDisplayName.textContent = name;
+    userAvatar.textContent = name.charAt(0).toUpperCase();
+    profile.style.display = "flex";
+}
+
+function showLoginBtn() {
+    profile.style.display = "none";
+    mainAuthBtn.style.display = "inline-flex";
+    mainAuthBtn.classList.remove("fade-out");
+}
+
+function openAuthModal() {
+    authModal.classList.remove("hidden");
+    authModal.classList.remove("modal-closing");
+    document.body.classList.add("no-scroll");
+}
+
+function closeAuthModal() {
+    authModal.classList.add("hidden");
+    document.body.classList.remove("no-scroll");
+    document.getElementById("auth-error-message").textContent = "";
+}
+
+function handleAuthSuccess(formId) {
+    const errEl = document.getElementById("auth-error-message");
+    let userName, password, passwordRepeat;
+
+    if (formId === "#form-login") {
+        userName = document.getElementById("login-name").value.trim();
+        password = document.getElementById("login-password").value;
+    } else {
+        userName = document.getElementById("reg-name").value.trim();
+        password = document.getElementById("reg-password").value;
+        passwordRepeat = document.getElementById("reg-password-repeat").value;
+    }
+
+    if (!userName) {
+        errEl.textContent = "Будь ласка, введіть ім'я!";
+        return;
+    }
+
+    const users = getRegisteredUsers();
+    const existing = users.find(u => u.name.toLowerCase() === userName.toLowerCase());
+
+    if (formId === "#form-login") {
+        if (!existing) {
+            errEl.textContent = "Користувача з таким ім'ям не знайдено. Зареєструйтесь!";
+            return;
+        }
+        if (existing.password !== password) {
+            errEl.textContent = "Невірний пароль!";
+            return;
+        }
+    } else {
+        if (password.length < 4) {
+            errEl.textContent = "Пароль має бути мінімум 4 символи!";
+            return;
+        }
+        if (password !== passwordRepeat) {
+            errEl.textContent = "Паролі не співпадають!";
+            return;
+        }
+        saveUser(userName, password);
+    }
+
+    errEl.textContent = "";
+    setLoggedUser(userName);
+    authModal.classList.add("modal-closing");
+    setTimeout(() => {
+        closeAuthModal();
+        authModal.classList.remove("modal-closing");
+        mainAuthBtn.classList.add("fade-out");
+        setTimeout(() => {
+            mainAuthBtn.classList.remove("fade-out");
+            showProfile(userName);
+        }, 300);
+    }, 320);
+}
+
+// Кнопка "Назад" — закриває модалку
+closeModalBtn.addEventListener("click", () => {
+    authModal.classList.add("modal-closing");
+    setTimeout(() => {
+        closeAuthModal();
+        authModal.classList.remove("modal-closing");
+    }, 320);
+});
+
+// Перемикання вкладок Вхід / Реєстрація
+document.getElementById("tab-login").addEventListener("click", () => {
+    document.getElementById("tab-login").classList.add("active");
+    document.getElementById("tab-register").classList.remove("active");
+    document.getElementById("form-login").classList.remove("hidden-form");
+    document.getElementById("form-register").classList.add("hidden-form");
+    document.getElementById("auth-error-message").textContent = "";
+});
+document.getElementById("tab-register").addEventListener("click", () => {
+    document.getElementById("tab-register").classList.add("active");
+    document.getElementById("tab-login").classList.remove("active");
+    document.getElementById("form-register").classList.remove("hidden-form");
+    document.getElementById("form-login").classList.add("hidden-form");
+    document.getElementById("auth-error-message").textContent = "";
+});
+
+// Кнопки Увійти / Зареєструватись
+document.getElementById("mock-login-submit").addEventListener("click", (e) => {
+    e.preventDefault();
+    handleAuthSuccess("#form-login");
+});
+document.getElementById("mock-register-submit").addEventListener("click", (e) => {
+    e.preventDefault();
+    handleAuthSuccess("#form-register");
+});
+
+// Відкриття модалки по кліку на "Вхід / Реєстрація"
+mainAuthBtn.addEventListener("click", openAuthModal);
+
+// Кнопка "Зареєструватись" у секції переваг
+const benefitsBtn = document.getElementById("open-reg-from-benefits");
+if (benefitsBtn) {
+    benefitsBtn.addEventListener("click", () => {
+        openAuthModal();
+        document.getElementById("tab-register").click();
+    });
+}
+
+// Профіль: випадаюче меню по кліку
+profile.addEventListener("click", function(e) {
+    e.stopPropagation();
+    const dropdown = this.querySelector(".dropdown-profile");
+    const isVisible = dropdown.classList.contains("show");
+    document.querySelectorAll(".dropdown-profile").forEach(d => d.classList.remove("show"));
+    if (!isVisible) dropdown.classList.add("show");
+});
+document.querySelectorAll(".profile-dropdown-link").forEach(link => {
+    link.addEventListener("click", (e) => {
+        e.stopPropagation();
+        e.preventDefault();
+        if (link.id !== "logout-btn") {
+            link.closest(".dropdown-profile").classList.remove("show");
+        }
+    });
+});
+window.addEventListener("click", () => {
+    document.querySelectorAll(".dropdown-profile").forEach(d => d.classList.remove("show"));
+});
+
+// Вийти
+document.getElementById("logout-btn").addEventListener("click", (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    clearLoggedUser();
+    showLoginBtn();
+    document.querySelector(".dropdown-profile").classList.remove("show");
+});
+
+// При завантаженні сторінки: показати профіль, якщо залогінений
+(function initAuth() {
+    const user = getLoggedUser();
+    if (user && user.name) {
+        showProfile(user.name);
+    } else {
+        showLoginBtn();
+    }
+})();
 </script>
+
 
 </body>
 </html>
