@@ -51,9 +51,9 @@
                 <div class="nav-item">
                     <a href="#">Про академію <span class="arrow">▾</span></a>
                     <div class="dropdown">
-                        <a href="#">Вакансії</a>
-                        <a href="#">Відгуки</a>
-                        <a href="#">Про нас</a>
+                        <a href="#teachers" id="about-teachers-link">Викладачі</a>
+                        <a href=".reviews-section" id="about-reviews-link">Відгуки</a>
+                        <a href="#" id="about-us-link">Про нас</a>
                     </div>
                 </div>
 
@@ -503,6 +503,21 @@
     </div>
 </section>
 
+
+
+<!-- ====== МОДАЛКА: ПРО НАС ====== -->
+<div id="about-us-modal" class="panel-overlay hidden" aria-hidden="true">
+    <div class="panel-card glass-effect profile-panel">
+        <button type="button" class="close-btn modal-close-btn" data-close="#about-us-modal">Назад</button>
+        <h3 class="panel-title">Про ITveb Academy</h3>
+        <div class="about-us-content">
+            <p>ITveb Academy — це навчальна платформа у Львові, де дорослі та діти отримують актуальні IT-навички через практику, менторство та реальні кейси.</p>
+            <p>Наша мета — не просто дати теорію, а допомогти кожному студенту зібрати портфоліо, навчитися працювати в команді й відчути впевненість у своїй професійній траєкторії.</p>
+            <p>Ми постійно оновлюємо програми, запрошуємо викладачів-практиків і підтримуємо студентів від першого заняття до перших карʼєрних результатів.</p>
+        </div>
+    </div>
+</div>
+
 <!-- ====== МОДАЛКА: ЗАЛИШИТИ ЗАЯВКУ ====== -->
 <div id="help-request-modal" class="panel-overlay hidden" aria-hidden="true">
     <div class="panel-card glass-effect profile-panel">
@@ -549,7 +564,7 @@
         <button type="button" class="close-btn modal-close-btn" data-close="#course-subscribe-modal">Назад</button>
         <h3 class="panel-title">Оплата та підписка</h3>
         <form id="course-subscribe-form" class="auth-form">
-            <input type="text" id="card-number" placeholder="Номер картки (12 цифр)" required>
+            <input type="text" id="card-number" placeholder="Номер картки (16 цифр)" required>
             <input type="text" id="card-expiry" placeholder="Термін дії (MM/YY)" required>
             <input type="text" id="card-ccv" placeholder="CCV (3 цифри)" required>
             <input type="tel" id="subscribe-phone" placeholder="Номер телефону" required>
@@ -785,8 +800,13 @@ const helpRequestModal = document.getElementById("help-request-modal");
 const profileModal = document.getElementById("profile-modal");
 const myCoursesModal = document.getElementById("my-courses-modal");
 const courseSubscribeModal = document.getElementById("course-subscribe-modal");
+const aboutUsModal = document.getElementById("about-us-modal");
 
 let currentCourseSelection = null;
+
+const aboutTeachersLink = document.getElementById("about-teachers-link");
+const aboutReviewsLink = document.getElementById("about-reviews-link");
+const aboutUsLink = document.getElementById("about-us-link");
 
 function getRegisteredUsers() {
     try {
@@ -855,7 +875,8 @@ function isValidPhone(phone) {
 }
 
 function isValidCardNumber(card) {
-    return /^\d{12}$/.test((card || "").trim());
+    const normalized = (card || "").replace(/\s+/g, "");
+    return /^\d{16}$/.test(normalized);
 }
 
 function isValidExpiry(exp) {
@@ -1113,6 +1134,29 @@ document.querySelectorAll('.modal-close-btn').forEach(btn => {
     });
 });
 
+function smoothScrollToTarget(selector) {
+    const targetElement = document.querySelector(selector);
+    if (!targetElement) return;
+    const offset = 100;
+    const top = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+}
+
+aboutTeachersLink?.addEventListener('click', (e) => {
+    e.preventDefault();
+    smoothScrollToTarget('#teachers');
+});
+
+aboutReviewsLink?.addEventListener('click', (e) => {
+    e.preventDefault();
+    smoothScrollToTarget('.reviews-section');
+});
+
+aboutUsLink?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openGenericModal(aboutUsModal);
+});
+
 document.getElementById("help-request-form")?.addEventListener("submit", (e) => {
     e.preventDefault();
     const first = document.getElementById("help-first-name").value.trim();
@@ -1176,7 +1220,7 @@ document.getElementById("course-subscribe-form")?.addEventListener("submit", (e)
     ok.textContent = "";
 
     if (!isValidCardNumber(cardNumber)) {
-        err.textContent = "Номер картки має містити 12 цифр.";
+        err.textContent = "Номер картки має містити 16 цифр (пробіли ігноруються).";
         return;
     }
     if (!isValidExpiry(expiry)) {
