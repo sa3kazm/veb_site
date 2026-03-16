@@ -1073,10 +1073,15 @@ body.no-scroll {
 }
 
 .about-us-content p {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.16);
     border-radius: 12px;
     padding: 12px 14px;
+}
+
+#about-us-modal .glass-effect {
+    background: rgba(15, 20, 28, 0.92);
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .course-detail-page {
@@ -1225,4 +1230,80 @@ body.no-scroll {
     .course-card {
         width: 100%;
     }
+}
+
+
+.diploma-panel {
+    width: 760px;
+    max-width: calc(100vw - 24px);
+}
+
+.diploma-select {
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 15px;
+    color: #222;
+}
+
+.diploma-preview.hidden {
+    display: none;
+}
+
+.diploma-card {
+    margin-top: 16px;
+    background: #f4efe2;
+    border-radius: 14px;
+    padding: 16px;
+    color: #2b2b2b;
+}
+
+.diploma-border {
+    border: 8px double #b8933f;
+    border-radius: 10px;
+    padding: 24px;
+    text-align: center;
+    background: linear-gradient(180deg, #fffdf7, #f8f1dc);
+}
+
+.diploma-top {
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: #7b5a19;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.diploma-border h4 {
+    font-size: 24px;
+    margin-bottom: 18px;
+}
+
+.diploma-sub {
+    color: #555;
+    margin: 8px 0;
+}
+
+.diploma-name {
+    font-size: 34px;
+    font-family: 'Times New Roman', serif;
+    color: #3f2e10;
+    margin: 8px 0 6px;
+}
+
+.diploma-course {
+    font-size: 26px;
+    color: #7a551a;
+    margin-top: 10px;
+    font-weight: 700;
+}
+
+.diploma-footer {
+    margin-top: 26px;
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+    font-size: 14px;
+    color: #4c4c4c;
 }

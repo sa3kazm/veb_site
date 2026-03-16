@@ -76,6 +76,7 @@
                 <div class="dropdown-profile">
                     <a href="#" id="profile-open-btn" class="profile-dropdown-link">Мій профіль</a>
                     <a href="#" id="my-courses-open-btn" class="profile-dropdown-link">Мої курси</a>
+                    <a href="#" id="diplomas-open-btn" class="profile-dropdown-link">Дипломи</a>
                     <a href="#" id="logout-btn" class="profile-dropdown-link">Вийти</a>
                 </div>
             </div>
@@ -558,6 +559,20 @@
     </div>
 </div>
 
+<!-- ====== МОДАЛКА: ДИПЛОМИ ====== -->
+<div id="diploma-modal" class="panel-overlay hidden" aria-hidden="true">
+    <div class="panel-card glass-effect profile-panel diploma-panel">
+        <button type="button" class="close-btn modal-close-btn" data-close="#diploma-modal">Назад</button>
+        <h3 class="panel-title">Дипломи</h3>
+        <div class="auth-form">
+            <select id="diploma-course-select" class="diploma-select"></select>
+            <button type="button" id="generate-diploma-btn" class="submit-btn">Сформувати диплом</button>
+        </div>
+        <div id="diploma-preview" class="diploma-preview hidden"></div>
+        <div id="diploma-empty" class="empty-note" style="display:none; margin-top:12px;">У вас поки що немає підписок на курси для формування диплома.</div>
+    </div>
+</div>
+
 <!-- ====== МОДАЛКА: ПІДПИСКА НА КУРС ====== -->
 <div id="course-subscribe-modal" class="panel-overlay hidden" aria-hidden="true">
     <div class="panel-card glass-effect profile-panel">
@@ -795,12 +810,14 @@ const ENROLLED_COURSES_KEY = "itveb_enrolled_courses";
 const helpRequestBtn = document.getElementById("open-help-request");
 const profileOpenBtn = document.getElementById("profile-open-btn");
 const myCoursesOpenBtn = document.getElementById("my-courses-open-btn");
+const diplomasOpenBtn = document.getElementById("diplomas-open-btn");
 
 const helpRequestModal = document.getElementById("help-request-modal");
 const profileModal = document.getElementById("profile-modal");
 const myCoursesModal = document.getElementById("my-courses-modal");
 const courseSubscribeModal = document.getElementById("course-subscribe-modal");
 const aboutUsModal = document.getElementById("about-us-modal");
+const diplomaModal = document.getElementById("diploma-modal");
 
 let currentCourseSelection = null;
 
@@ -1033,6 +1050,72 @@ function openMyCoursesModal() {
     openGenericModal(myCoursesModal);
 }
 
+function openDiplomaModal() {
+    const user = requireLoginOrShowAuth();
+    if (!user) return;
+
+    const select = document.getElementById("diploma-course-select");
+    const empty = document.getElementById("diploma-empty");
+    const preview = document.getElementById("diploma-preview");
+    const map = getEnrolledCourses();
+    const courses = map[user.name] || [];
+
+    select.innerHTML = "";
+    preview.classList.add("hidden");
+    preview.innerHTML = "";
+
+    if (!courses.length) {
+        empty.style.display = "block";
+        select.style.display = "none";
+        document.getElementById("generate-diploma-btn").style.display = "none";
+    } else {
+        empty.style.display = "none";
+        select.style.display = "block";
+        document.getElementById("generate-diploma-btn").style.display = "inline-block";
+        courses.forEach(c => {
+            const opt = document.createElement("option");
+            opt.value = c.courseId;
+            opt.textContent = `${c.title} (${c.meta})`;
+            select.appendChild(opt);
+        });
+    }
+
+    openGenericModal(diplomaModal);
+}
+
+function renderDiploma() {
+    const user = requireLoginOrShowAuth();
+    if (!user) return;
+
+    const select = document.getElementById("diploma-course-select");
+    const preview = document.getElementById("diploma-preview");
+    const map = getEnrolledCourses();
+    const courses = map[user.name] || [];
+    const selected = courses.find(c => c.courseId === select.value) || courses[0];
+    if (!selected) return;
+
+    const fullName = `${user.name || ""} ${user.surname || ""}`.trim();
+    const date = new Date().toLocaleDateString('uk-UA');
+
+    preview.innerHTML = `
+        <div class="diploma-card">
+            <div class="diploma-border">
+                <div class="diploma-top">ITveb Academy</div>
+                <h4>СЕРТИФІКАТ ПРО ЗАВЕРШЕННЯ КУРСУ</h4>
+                <p class="diploma-sub">Цим підтверджується, що</p>
+                <div class="diploma-name">${fullName}</div>
+                <p class="diploma-sub">успішно завершив(ла) курс</p>
+                <div class="diploma-course">${selected.title}</div>
+                <div class="diploma-footer">
+                    <span>Дата видачі: ${date}</span>
+                    <span>Підпис: ITveb Academy</span>
+                </div>
+            </div>
+        </div>
+    `;
+    preview.classList.remove("hidden");
+}
+
 function openSubscribeModal() {
     const user = requireLoginOrShowAuth();
     if (!user) return;
@@ -1124,6 +1207,8 @@ helpRequestBtn?.addEventListener("click", () => {
 
 profileOpenBtn?.addEventListener("click", openProfileModal);
 myCoursesOpenBtn?.addEventListener("click", openMyCoursesModal);
+diplomasOpenBtn?.addEventListener("click", openDiplomaModal);
+document.getElementById("generate-diploma-btn")?.addEventListener("click", renderDiploma);
 document.getElementById("course-subscribe-btn")?.addEventListener("click", openSubscribeModal);
 
 document.querySelectorAll('.modal-close-btn').forEach(btn => {
