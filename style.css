@@ -3,16 +3,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Manrope', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 body {
-    background-color: #000000;
-    color: #ffffff;
-    line-height: 1.6;
+    background-color: #050816;
+    color: #edf3ff;
+    line-height: 1.65;
     overflow-x: hidden;
-    background-image: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.15), transparent 30%),
-                      radial-gradient(circle at 80% 10%, rgba(168, 85, 247, 0.12), transparent 28%);
+    background-image:
+        radial-gradient(circle at 12% 18%, rgba(56, 189, 248, 0.20), transparent 30%),
+        radial-gradient(circle at 85% 8%, rgba(99, 102, 241, 0.22), transparent 32%),
+        radial-gradient(circle at 60% 80%, rgba(16, 185, 129, 0.14), transparent 28%);
 }
 
 .container {
@@ -23,14 +25,15 @@ body {
 
 /* --- ШАПКА ТА МЕНЮ --- */
 header {
-    background-color: #1a1a1a;
+    background-color: rgba(8, 13, 32, 0.88);
     padding: 10px 0;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    border-bottom: 1px solid #333;
+    border-bottom: 1px solid rgba(148, 163, 184, 0.22);
+    backdrop-filter: blur(12px);
     transition: transform 0.4s ease;
 }
 
@@ -81,7 +84,7 @@ header {
 }
 
 .nav-item a {
-    color: white;
+    color: #e2e8f0;
     text-decoration: none;
     font-size: 15px;
     font-weight: 500;
@@ -92,7 +95,7 @@ header {
 
 .arrow {
     font-size: 12px;
-    color: #3b82f6;
+    color: #38bdf8;
     transition: 0.3s;
 }
 
@@ -100,13 +103,13 @@ header {
     position: absolute;
     top: 100%;
     left: 0;
-    background: #1a1a1a;
+    background: #0d1530;
     min-width: 230px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(10px);
     transition: all 0.3s ease;
-    border-top: 2px solid #3b82f6;
+    border-top: 2px solid #38bdf8;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     z-index: 1100;
 }
@@ -126,7 +129,7 @@ header {
 }
 
 .dropdown a:hover {
-    background: #2563eb;
+    background: linear-gradient(120deg, #0ea5e9, #6366f1);
     color: white;
 }
 
@@ -159,7 +162,7 @@ header {
 }
 
 .header-course-link:hover {
-    background: #2563eb;
+    background: linear-gradient(120deg, #0ea5e9, #6366f1);
     color: #fff;
 }
 
@@ -188,8 +191,8 @@ header {
 
 /* --- HERO --- */
 .hero {
-    height: 500px;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200');
+    min-height: 560px;
+    background: linear-gradient(120deg, rgba(5, 8, 22, 0.68), rgba(15, 23, 42, 0.75)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -226,8 +229,22 @@ header {
 }
 
 .hero-content h1 {
-    font-size: 64px;
-    margin-bottom: 10px;
+    font-family: 'Space Grotesk', 'Manrope', sans-serif;
+    font-size: clamp(3rem, 8vw, 6.2rem);
+    line-height: 1.03;
+    margin-bottom: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-wrap: balance;
+}
+
+.hero-subtitle {
+    max-width: 760px;
+    font-size: clamp(1.05rem, 2.7vw, 1.9rem);
+    letter-spacing: 0.055em;
+    text-transform: uppercase;
+    color: #d1f5ff;
+    text-wrap: balance;
 }
 
 /* --- ОСТРІВЕЦЬ НАВІГАЦІЇ --- */
@@ -301,8 +318,8 @@ header {
     width: 100%;
     min-height: 280px;
     border-radius: 32px;
-    background: linear-gradient(135deg, #181a1d 0%, #101114 100%);
-    border: 1px solid #2d2d2d;
+    background: linear-gradient(135deg, #0f172a 0%, #111c3f 55%, #0b1328 100%);
+    border: 1px solid rgba(125, 211, 252, 0.22);
     position: relative;
     overflow: hidden;
     padding: 40px;
@@ -650,7 +667,7 @@ header {
 }
 
 .faq-question:hover {
-    background: #1a1a1a;
+    background: #0d1530;
 }
 
 .faq-icon {
@@ -708,7 +725,7 @@ header {
 }
 
 .back-btn:hover {
-    background: #1a1a1a;
+    background: #0d1530;
     color: #fff;
     border-color: #3b82f6;
     transform: translateX(-5px);
@@ -787,7 +804,7 @@ section {
 .profile-avatar {
     width: 40px;
     height: 40px;
-    background: #1a1a1a;
+    background: #0d1530;
     color: #fff;
     border-radius: 50%;
     display: flex;
@@ -804,10 +821,10 @@ section {
     position: absolute;
     top: calc(100% + 8px);
     right: 0;
-    background: #1a1a1a;
+    background: #0d1530;
     min-width: 200px;
     border-radius: 12px;
-    border-top: 2px solid #3b82f6;
+    border-top: 2px solid #38bdf8;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     overflow: hidden;
 }
@@ -827,7 +844,7 @@ section {
 }
 
 .dropdown-profile a:hover {
-    background: #2563eb;
+    background: linear-gradient(120deg, #0ea5e9, #6366f1);
     color: white;
 }
 
@@ -843,12 +860,14 @@ section {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
+    z-index: 12000;
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 1;
     transition: opacity 0.3s ease;
+    padding: 20px 14px;
+    overflow-y: auto;
 }
 
 .auth-modal-overlay.hidden {
@@ -949,14 +968,20 @@ section {
 
 .submit-btn {
     padding: 12px;
-    border-radius: 10px;
-    border: none;
-    background: white;
-    color: black;
-    font-weight: bold;
+    border-radius: 12px;
+    border: 1px solid rgba(125, 211, 252, 0.5);
+    background: linear-gradient(120deg, #22d3ee, #6366f1);
+    color: #04111d;
+    font-weight: 800;
     font-size: 16px;
     cursor: pointer;
     margin-top: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(34, 211, 238, 0.24);
 }
 
 .error-text {
@@ -979,12 +1004,14 @@ body.no-scroll {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
+    z-index: 12000;
     display: flex;
     justify-content: center;
     align-items: center;
     opacity: 1;
     transition: opacity 0.3s ease;
+    padding: 20px 14px;
+    overflow-y: auto;
 }
 .panel-overlay.hidden {
     opacity: 0;
@@ -1095,8 +1122,8 @@ body.no-scroll {
 }
 .course-detail-card {
     border-radius: 32px;
-    background: linear-gradient(135deg, #181a1d 0%, #101114 100%);
-    border: 1px solid #2d2d2d;
+    background: linear-gradient(135deg, #0f172a 0%, #111c3f 55%, #0b1328 100%);
+    border: 1px solid rgba(125, 211, 252, 0.22);
     padding: 40px;
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
 }
@@ -1309,4 +1336,384 @@ body.no-scroll {
     gap: 14px;
     font-size: 14px;
     color: #4c4c4c;
+}
+
+@media (max-width: 1024px) {
+    .container { padding: 0 18px; }
+    .header-content { gap: 10px; }
+    .header-left-group { gap: 16px; }
+    .main-nav { gap: 16px; }
+    .hero { min-height: 470px; margin-top: 70px; }
+    .glass-effect { width: min(92vw, 520px); padding: 26px 20px; }
+}
+
+@media (max-width: 820px) {
+    .header-content, .header-left-group { flex-wrap: wrap; }
+    .main-nav { order: 3; width: 100%; justify-content: center; flex-wrap: wrap; gap: 12px; }
+    .nav-item { padding: 8px 0; }
+    .header-right-group { width: 100%; justify-content: flex-end; }
+    .main-logo { height: 62px; }
+    .hero { min-height: 420px; }
+    .hero-content { padding: 20px 0; }
+    .sticky-nav-wrapper { display: none; }
+    .course-detail-page { padding-top: 90px; }
+}
+
+@media (max-width: 560px) {
+    .container { padding: 0 14px; }
+    .hero { min-height: 360px; }
+    .hero-subtitle { letter-spacing: 0.03em; }
+    .glass-effect, .panel-overlay .panel-card, .profile-panel { max-width: calc(100vw - 20px); }
+    .auth-form input { font-size: 15px; }
+    .course-detail-title { font-size: 30px; }
+    .course-detail-card { padding: 20px; border-radius: 20px; }
+}
+
+/* ===== ORGANIZED THEME OVERRIDES: Minimalist Dark Mono (Lively) ===== */
+/* -----------------------------------------------------------------
+   Мінімалістична темна тема для всього сайту:
+   - монохромна база (чорний/графіт)
+   - легкі «живі» акценти (mild cyan)
+   - чиста типографіка й охайні поверхні
+------------------------------------------------------------------ */
+
+/* ===== 1) Theme tokens ===== */
+:root {
+    --bg-main: #060608;
+    --bg-soft: #0d0d12;
+    --surface: #141419;
+    --surface-2: #1a1a22;
+    --text-main: #f4f5f7;
+    --text-muted: #afb4bf;
+    --accent: #5eead4;
+    --accent-2: #7dd3fc;
+    --accent-3: #60a5fa;
+    --border-soft: rgba(148, 163, 184, 0.24);
+    --shadow: 0 18px 42px rgba(0, 0, 0, 0.46);
+}
+
+/* ===== 2) Global base ===== */
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    background-image:
+        radial-gradient(circle at 12% 12%, rgba(45, 83, 100, 0.007), transparent 32%),
+        radial-gradient(circle at 82% 10%, rgba(35, 17, 48, 0.466), transparent 34%),
+        radial-gradient(circle at 50% 88%, rgba(0, 0, 0, 0.486), transparent 30%);
+}
+
+/* ===== 3) Header + nav ===== */
+header {
+    background: rgba(8, 8, 12, 0.92);
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    backdrop-filter: blur(11px);
+}
+
+.nav-item a,
+.contact-row,
+.header-course-link,
+.dropdown a,
+.dropdown-profile a,
+.section-title,
+.course-detail-title,
+.panel-title {
+    color: var(--text-main);
+}
+
+.arrow,
+.dropdown-group-title,
+.nav-anchor:hover,
+.faq-icon {
+    color: var(--accent-2);
+}
+
+.dropdown,
+.contacts-dropdown,
+.header-courses-dropdown,
+.dropdown-profile {
+    background: rgba(15, 15, 20, 0.98);
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow);
+}
+
+.dropdown a,
+.header-course-link,
+.contact-row,
+.dropdown-profile a {
+    border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+.dropdown a:hover,
+.header-course-link:hover,
+.dropdown-profile a:hover {
+    background: linear-gradient(120deg, #1f2937, #334155);
+    color: #ffffff;
+}
+
+/* ===== 4) Hero ===== */
+.hero {
+    background: linear-gradient(115deg, rgba(0,0,0,0.80), rgba(13,16,24,0.76)), url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero .container {
+    width: 100%;
+}
+
+.hero-content {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 980px;
+}
+
+.hero-content h1,
+.hero-subtitle {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hero-content h1 {
+    color: #f8fafc;
+    text-shadow: 0 0 18px rgba(125, 211, 252, 0.18);
+}
+
+.hero-subtitle {
+    color: #d8dde7;
+    max-width: 860px;
+}
+
+/* ===== 5) Buttons / CTA ===== */
+.submit-btn,
+.help-submit-btn,
+.auth-btn-oval,
+.nav-anchor.active {
+    background: linear-gradient(120deg, #374151, #4b5563);
+    color: #ffffff;
+    border: 1px solid rgba(125, 211, 252, 0.45);
+}
+
+.submit-btn:hover,
+.help-submit-btn:hover,
+.auth-btn-oval:hover {
+    background: linear-gradient(120deg, #4b5563, #64748b);
+    box-shadow: 0 10px 22px rgba(125, 211, 252, 0.20);
+}
+
+/* ===== 6) Content cards / sections ===== */
+.course-card,
+.benefit-card,
+.review-card,
+.teacher-card,
+.faq-item,
+.help-card,
+.course-detail-card,
+.my-course-item,
+.empty-note,
+.about-us-content p,
+.course-detail-box,
+.course-detail-list li {
+    background: linear-gradient(150deg, var(--surface) 0%, var(--surface-2) 100%);
+    border: 1px solid var(--border-soft);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    color: var(--text-main);
+}
+
+.section-title {
+    text-align: left;
+}
+
+.course-detail-meta,
+.panel-subtitle,
+.my-course-item span,
+.empty-note,
+.faq-answer p {
+    color: var(--text-muted);
+}
+
+.course-detail-card {
+    border-left: 4px solid var(--accent-3);
+}
+
+.course-detail-list li::before {
+    background: rgba(125, 211, 252, 0.15);
+    color: var(--accent-2);
+}
+
+/* ===== 7) Modals + forms ===== */
+.auth-modal-overlay,
+.panel-overlay {
+    background: rgba(0, 0, 0, 0.66);
+}
+
+.glass-effect {
+    background: linear-gradient(145deg, rgba(18,18,24,0.94), rgba(23,23,30,0.92));
+    border: 1px solid var(--border-soft);
+    color: var(--text-main);
+}
+
+.auth-form input,
+.diploma-select {
+    background: #101218;
+    border: 1px solid rgba(148, 163, 184, 0.42);
+    color: #f8fafc;
+}
+
+.close-btn {
+    color: #e8ebf2;
+    border-color: rgba(148, 163, 184, 0.7);
+    background: rgba(19, 22, 30, 0.86);
+}
+
+.close-btn:hover {
+    background: linear-gradient(120deg, #374151, #4b5563);
+    color: #fff;
+    border-color: transparent;
+}
+
+/* ===== 8) Footer ===== */
+.footer {
+    background: linear-gradient(120deg, #07080d, #11131a);
+    color: #cbd5e1;
+}
+
+/* ===== 9) Responsive polish (laptops + phones) ===== */
+@media (max-width: 1280px) {
+    .container {
+        padding: 0 18px;
+    }
+
+    .main-nav {
+        gap: 18px;
+    }
+
+    .section-title {
+        font-size: 36px;
+        margin-bottom: 32px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.8rem, 7vw, 5rem);
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 2.4vw, 1.55rem);
+    }
+}
+
+@media (max-width: 1024px) {
+    .header-content,
+    .header-left-group {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .main-nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px 14px;
+    }
+
+    .nav-item {
+        padding: 8px 0;
+    }
+
+    .header-right-group {
+        margin-left: 0;
+    }
+
+    .hero {
+        min-height: 460px;
+        margin-top: 72px;
+    }
+
+    .course-detail-card {
+        padding: 28px;
+    }
+
+    .glass-effect,
+    .panel-overlay .panel-card,
+    .profile-panel,
+    .diploma-panel {
+        max-width: min(94vw, 760px);
+    }
+}
+
+@media (max-width: 820px) {
+    .sticky-nav-wrapper {
+        display: none;
+    }
+
+    .main-logo {
+        height: 62px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+        padding: 0 8px;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 3.8vw, 1.35rem);
+    }
+
+    .section-title {
+        font-size: 32px;
+        margin-bottom: 26px;
+    }
+}
+
+@media (max-width: 640px) {
+    .container {
+        padding: 0 14px;
+    }
+
+    .main-nav {
+        gap: 8px 10px;
+    }
+
+    .nav-item a {
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 380px;
+    }
+
+    .hero-content h1 {
+        font-size: clamp(2.1rem, 11vw, 3.1rem);
+        letter-spacing: 0.05em;
+    }
+
+    .hero-subtitle {
+        letter-spacing: 0.02em;
+    }
+
+    .section-title {
+        font-size: 28px;
+    }
+
+    .course-detail-page {
+        padding-top: 84px;
+    }
+
+    .course-detail-card {
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .auth-form input,
+    .submit-btn {
+        font-size: 15px;
+    }
+
+    .close-btn {
+        top: 10px;
+        left: 10px;
+        padding: 4px 12px;
+    }
 }
