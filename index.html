@@ -74,8 +74,8 @@
                 <div class="profile-avatar" id="user-avatar">?</div>
                 <span id="user-display-name">Користувач</span>
                 <div class="dropdown-profile">
-                    <a href="#" class="profile-dropdown-link">Мій профіль</a>
-                    <a href="#" class="profile-dropdown-link">Мої курси</a>
+                    <a href="#" id="profile-open-btn" class="profile-dropdown-link">Мій профіль</a>
+                    <a href="#" id="my-courses-open-btn" class="profile-dropdown-link">Мої курси</a>
                     <a href="#" id="logout-btn" class="profile-dropdown-link">Вийти</a>
                 </div>
             </div>
@@ -263,7 +263,7 @@
                         Якщо у вас є питання про курси або ви не знаєте, що вибрати, залиште свій номер, ми зателефонуємо та детально проконсультуємо.
                     </p>
                     <div class="help-action-wrapper">
-                        <button class="help-submit-btn">Залишити заявку</button>
+                        <button id="open-help-request" class="help-submit-btn">Залишити заявку</button>
                     </div>
                 </div>
                 <div class="help-visuals">
@@ -439,6 +439,7 @@
 
         <form id="form-register" class="auth-form hidden-form">
             <input type="text" id="reg-name" placeholder="Ім'я" required>
+            <input type="text" id="reg-surname" placeholder="Прізвище" required>
             <input type="password" id="reg-password" placeholder="Пароль" required>
             <input type="password" id="reg-password-repeat" placeholder="Повторіть пароль" required>
             <button type="button" class="submit-btn" id="mock-register-submit">Зареєструватись</button>
@@ -484,6 +485,10 @@
                 Опис курсу...
             </div>
 
+            <div class="course-detail-actions">
+                <button type="button" id="course-subscribe-btn" class="submit-btn course-subscribe-btn">Підписатись на курс</button>
+            </div>
+
             <div class="course-detail-grid">
                 <div class="course-detail-box">
                     <h3>Характеристики</h3>
@@ -497,6 +502,64 @@
         </div>
     </div>
 </section>
+
+<!-- ====== МОДАЛКА: ЗАЛИШИТИ ЗАЯВКУ ====== -->
+<div id="help-request-modal" class="panel-overlay hidden" aria-hidden="true">
+    <div class="panel-card glass-effect profile-panel">
+        <button type="button" class="close-btn modal-close-btn" data-close="#help-request-modal">Назад</button>
+        <h3 class="panel-title">Залишити заявку</h3>
+        <form id="help-request-form" class="auth-form">
+            <input type="text" id="help-first-name" placeholder="Ім'я" required>
+            <input type="text" id="help-last-name" placeholder="Прізвище" required>
+            <input type="tel" id="help-phone" placeholder="Номер телефону" required>
+            <button type="submit" class="submit-btn">Надіслати заявку</button>
+        </form>
+        <div id="help-request-message" class="success-text"></div>
+    </div>
+</div>
+
+<!-- ====== МОДАЛКА: МІЙ ПРОФІЛЬ ====== -->
+<div id="profile-modal" class="panel-overlay hidden" aria-hidden="true">
+    <div class="panel-card glass-effect profile-panel">
+        <button type="button" class="close-btn modal-close-btn" data-close="#profile-modal">Назад</button>
+        <h3 class="panel-title">Мій профіль</h3>
+        <form id="profile-form" class="auth-form">
+            <input type="text" id="profile-first-name" placeholder="Ім'я" required>
+            <input type="text" id="profile-last-name" placeholder="Прізвище" required>
+            <input type="tel" id="profile-phone" placeholder="Номер телефону">
+            <input type="email" id="profile-email" placeholder="Електронна пошта">
+            <button type="submit" class="submit-btn">Зберегти</button>
+        </form>
+        <div id="profile-message" class="success-text"></div>
+    </div>
+</div>
+
+<!-- ====== МОДАЛКА: МОЇ КУРСИ ====== -->
+<div id="my-courses-modal" class="panel-overlay hidden" aria-hidden="true">
+    <div class="panel-card glass-effect profile-panel">
+        <button type="button" class="close-btn modal-close-btn" data-close="#my-courses-modal">Назад</button>
+        <h3 class="panel-title">Мої курси</h3>
+        <div id="my-courses-list" class="my-courses-list"></div>
+    </div>
+</div>
+
+<!-- ====== МОДАЛКА: ПІДПИСКА НА КУРС ====== -->
+<div id="course-subscribe-modal" class="panel-overlay hidden" aria-hidden="true">
+    <div class="panel-card glass-effect profile-panel">
+        <button type="button" class="close-btn modal-close-btn" data-close="#course-subscribe-modal">Назад</button>
+        <h3 class="panel-title">Оплата та підписка</h3>
+        <form id="course-subscribe-form" class="auth-form">
+            <input type="text" id="card-number" placeholder="Номер картки (12 цифр)" required>
+            <input type="text" id="card-expiry" placeholder="Термін дії (MM/YY)" required>
+            <input type="text" id="card-ccv" placeholder="CCV (3 цифри)" required>
+            <input type="tel" id="subscribe-phone" placeholder="Номер телефону" required>
+            <button type="submit" class="submit-btn">Оплатити і підписатись</button>
+        </form>
+        <div id="subscribe-error" class="error-text"></div>
+        <div id="subscribe-message" class="success-text"></div>
+    </div>
+</div>
+
 
 <script>
 // 1. ШАПКА: з'являється тільки в самому верху (scrollY < 50)
@@ -712,6 +775,18 @@ const closeModalBtn = document.getElementById("close-modal-btn");
 
 const STORAGE_KEY = "itveb_logged_user";
 const USERS_KEY = "itveb_registered_users";
+const ENROLLED_COURSES_KEY = "itveb_enrolled_courses";
+
+const helpRequestBtn = document.getElementById("open-help-request");
+const profileOpenBtn = document.getElementById("profile-open-btn");
+const myCoursesOpenBtn = document.getElementById("my-courses-open-btn");
+
+const helpRequestModal = document.getElementById("help-request-modal");
+const profileModal = document.getElementById("profile-modal");
+const myCoursesModal = document.getElementById("my-courses-modal");
+const courseSubscribeModal = document.getElementById("course-subscribe-modal");
+
+let currentCourseSelection = null;
 
 function getRegisteredUsers() {
     try {
@@ -720,12 +795,30 @@ function getRegisteredUsers() {
     } catch { return []; }
 }
 
-function saveUser(name, password) {
+function saveRegisteredUsers(users) {
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+}
+
+function findUserByName(name) {
     const users = getRegisteredUsers();
-    if (!users.find(u => u.name.toLowerCase() === name.toLowerCase())) {
-        users.push({ name, password });
-        localStorage.setItem(USERS_KEY, JSON.stringify(users));
+    return users.find(u => u.name.toLowerCase() === name.toLowerCase()) || null;
+}
+
+function saveUser(profileData) {
+    const users = getRegisteredUsers();
+    const exists = users.find(u => u.name.toLowerCase() === profileData.name.toLowerCase());
+    if (!exists) {
+        users.push(profileData);
+        saveRegisteredUsers(users);
     }
+}
+
+function updateUserByName(oldName, newData) {
+    const users = getRegisteredUsers();
+    const idx = users.findIndex(u => u.name.toLowerCase() === oldName.toLowerCase());
+    if (idx === -1) return;
+    users[idx] = { ...users[idx], ...newData };
+    saveRegisteredUsers(users);
 }
 
 function getLoggedUser() {
@@ -734,12 +827,43 @@ function getLoggedUser() {
     } catch { return null; }
 }
 
-function setLoggedUser(name) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ name }));
+function setLoggedUser(user) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
 }
 
 function clearLoggedUser() {
     localStorage.removeItem(STORAGE_KEY);
+}
+
+function getEnrolledCourses() {
+    try {
+        const data = JSON.parse(localStorage.getItem(ENROLLED_COURSES_KEY) || "{}");
+        return data && typeof data === "object" ? data : {};
+    } catch { return {}; }
+}
+
+function saveEnrolledCourses(data) {
+    localStorage.setItem(ENROLLED_COURSES_KEY, JSON.stringify(data));
+}
+
+function normalizePhone(phone) {
+    return (phone || "").replace(/\s+/g, "").trim();
+}
+
+function isValidPhone(phone) {
+    return /^\+?\d{10,13}$/.test(normalizePhone(phone));
+}
+
+function isValidCardNumber(card) {
+    return /^\d{12}$/.test((card || "").trim());
+}
+
+function isValidExpiry(exp) {
+    return /^(0[1-9]|1[0-2])\/(\d{2})$/.test((exp || "").trim());
+}
+
+function isValidCCV(ccv) {
+    return /^\d{3}$/.test((ccv || "").trim());
 }
 
 function showProfile(name) {
@@ -769,13 +893,14 @@ function closeAuthModal() {
 
 function handleAuthSuccess(formId) {
     const errEl = document.getElementById("auth-error-message");
-    let userName, password, passwordRepeat;
+    let userName, surname, password, passwordRepeat;
 
     if (formId === "#form-login") {
         userName = document.getElementById("login-name").value.trim();
         password = document.getElementById("login-password").value;
     } else {
         userName = document.getElementById("reg-name").value.trim();
+        surname = document.getElementById("reg-surname").value.trim();
         password = document.getElementById("reg-password").value;
         passwordRepeat = document.getElementById("reg-password-repeat").value;
     }
@@ -785,8 +910,7 @@ function handleAuthSuccess(formId) {
         return;
     }
 
-    const users = getRegisteredUsers();
-    const existing = users.find(u => u.name.toLowerCase() === userName.toLowerCase());
+    const existing = findUserByName(userName);
 
     if (formId === "#form-login") {
         if (!existing) {
@@ -797,7 +921,12 @@ function handleAuthSuccess(formId) {
             errEl.textContent = "Невірний пароль!";
             return;
         }
+        setLoggedUser(existing);
     } else {
+        if (!surname) {
+            errEl.textContent = "Вкажіть прізвище!";
+            return;
+        }
         if (password.length < 4) {
             errEl.textContent = "Пароль має бути мінімум 4 символи!";
             return;
@@ -806,11 +935,17 @@ function handleAuthSuccess(formId) {
             errEl.textContent = "Паролі не співпадають!";
             return;
         }
-        saveUser(userName, password);
+        if (existing) {
+            errEl.textContent = "Користувач з таким ім'ям вже існує!";
+            return;
+        }
+
+        const newUser = { name: userName, surname, password, phone: "", email: "" };
+        saveUser(newUser);
+        setLoggedUser(newUser);
     }
 
     errEl.textContent = "";
-    setLoggedUser(userName);
     authModal.classList.add("modal-closing");
     setTimeout(() => {
         closeAuthModal();
@@ -818,9 +953,73 @@ function handleAuthSuccess(formId) {
         mainAuthBtn.classList.add("fade-out");
         setTimeout(() => {
             mainAuthBtn.classList.remove("fade-out");
-            showProfile(userName);
+            const logged = getLoggedUser();
+            showProfile(logged?.name || userName);
         }, 300);
     }, 320);
+}
+
+function openGenericModal(modalEl) {
+    if (!modalEl) return;
+    openOverlay(modalEl);
+}
+
+function closeGenericModal(modalEl) {
+    if (!modalEl) return;
+    closeOverlay(modalEl);
+}
+
+function requireLoginOrShowAuth() {
+    const user = getLoggedUser();
+    if (!user || !user.name) {
+        openAuthModal();
+        return null;
+    }
+    return user;
+}
+
+function renderMyCourses() {
+    const list = document.getElementById("my-courses-list");
+    const user = getLoggedUser();
+    if (!list || !user) return;
+    const enrolledMap = getEnrolledCourses();
+    const userCourses = enrolledMap[user.name] || [];
+
+    if (!userCourses.length) {
+        list.innerHTML = '<div class="empty-note">Поки що ви не підписані на жоден курс.</div>';
+        return;
+    }
+
+    list.innerHTML = userCourses.map(c => `<div class="my-course-item"><strong>${c.title}</strong><span>${c.meta}</span></div>`).join("");
+}
+
+function openProfileModal() {
+    const user = requireLoginOrShowAuth();
+    if (!user) return;
+
+    document.getElementById("profile-first-name").value = user.name || "";
+    document.getElementById("profile-last-name").value = user.surname || "";
+    document.getElementById("profile-phone").value = user.phone || "";
+    document.getElementById("profile-email").value = user.email || "";
+    document.getElementById("profile-message").textContent = "";
+    openGenericModal(profileModal);
+}
+
+function openMyCoursesModal() {
+    const user = requireLoginOrShowAuth();
+    if (!user) return;
+    renderMyCourses();
+    openGenericModal(myCoursesModal);
+}
+
+function openSubscribeModal() {
+    const user = requireLoginOrShowAuth();
+    if (!user) return;
+    if (!currentCourseSelection) return;
+    document.getElementById("subscribe-error").textContent = "";
+    document.getElementById("subscribe-message").textContent = "";
+    document.getElementById("course-subscribe-form").reset();
+    openGenericModal(courseSubscribeModal);
 }
 
 // Кнопка "Назад" — закриває модалку
@@ -858,10 +1057,8 @@ document.getElementById("mock-register-submit").addEventListener("click", (e) =>
     handleAuthSuccess("#form-register");
 });
 
-// Відкриття модалки по кліку на "Вхід / Реєстрація"
 mainAuthBtn.addEventListener("click", openAuthModal);
 
-// Кнопка "Зареєструватись" у секції переваг
 const benefitsBtn = document.getElementById("open-reg-from-benefits");
 if (benefitsBtn) {
     benefitsBtn.addEventListener("click", () => {
@@ -870,7 +1067,6 @@ if (benefitsBtn) {
     });
 }
 
-// Профіль: випадаюче меню по кліку
 profile.addEventListener("click", function(e) {
     e.stopPropagation();
     const dropdown = this.querySelector(".dropdown-profile");
@@ -878,29 +1074,141 @@ profile.addEventListener("click", function(e) {
     document.querySelectorAll(".dropdown-profile").forEach(d => d.classList.remove("show"));
     if (!isVisible) dropdown.classList.add("show");
 });
+
 document.querySelectorAll(".profile-dropdown-link").forEach(link => {
     link.addEventListener("click", (e) => {
         e.stopPropagation();
         e.preventDefault();
-        if (link.id !== "logout-btn") {
-            link.closest(".dropdown-profile").classList.remove("show");
-        }
+        link.closest(".dropdown-profile")?.classList.remove("show");
     });
 });
+
 window.addEventListener("click", () => {
     document.querySelectorAll(".dropdown-profile").forEach(d => d.classList.remove("show"));
 });
 
-// Вийти
 document.getElementById("logout-btn").addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
     clearLoggedUser();
     showLoginBtn();
-    document.querySelector(".dropdown-profile").classList.remove("show");
+    document.querySelector(".dropdown-profile")?.classList.remove("show");
 });
 
-// При завантаженні сторінки: показати профіль, якщо залогінений
+helpRequestBtn?.addEventListener("click", () => {
+    document.getElementById("help-request-message").textContent = "";
+    document.getElementById("help-request-form").reset();
+    openGenericModal(helpRequestModal);
+});
+
+profileOpenBtn?.addEventListener("click", openProfileModal);
+myCoursesOpenBtn?.addEventListener("click", openMyCoursesModal);
+document.getElementById("course-subscribe-btn")?.addEventListener("click", openSubscribeModal);
+
+document.querySelectorAll('.modal-close-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const selector = btn.dataset.close;
+        const target = selector ? document.querySelector(selector) : null;
+        if (target) closeGenericModal(target);
+    });
+});
+
+document.getElementById("help-request-form")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const first = document.getElementById("help-first-name").value.trim();
+    const last = document.getElementById("help-last-name").value.trim();
+    const phone = document.getElementById("help-phone").value.trim();
+    const msg = document.getElementById("help-request-message");
+
+    if (!first || !last || !isValidPhone(phone)) {
+        msg.textContent = "Заповніть ім'я, прізвище та коректний номер телефону.";
+        msg.classList.add("error-mode");
+        return;
+    }
+    msg.classList.remove("error-mode");
+    msg.textContent = "Заявка прийнята на обробку, очікуйте.";
+});
+
+document.getElementById("profile-form")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const user = requireLoginOrShowAuth();
+    if (!user) return;
+
+    const name = document.getElementById("profile-first-name").value.trim();
+    const surname = document.getElementById("profile-last-name").value.trim();
+    const phone = document.getElementById("profile-phone").value.trim();
+    const email = document.getElementById("profile-email").value.trim();
+    const msg = document.getElementById("profile-message");
+
+    if (!name || !surname) {
+        msg.textContent = "Ім'я і прізвище обов'язкові.";
+        msg.classList.add("error-mode");
+        return;
+    }
+    if (phone && !isValidPhone(phone)) {
+        msg.textContent = "Невірний формат номера телефону.";
+        msg.classList.add("error-mode");
+        return;
+    }
+
+    const updated = { ...user, name, surname, phone, email };
+    updateUserByName(user.name, updated);
+    setLoggedUser(updated);
+    showProfile(updated.name);
+
+    msg.classList.remove("error-mode");
+    msg.textContent = "Профіль збережено успішно.";
+});
+
+document.getElementById("course-subscribe-form")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const user = requireLoginOrShowAuth();
+    if (!user || !currentCourseSelection) return;
+
+    const cardNumber = document.getElementById("card-number").value.trim();
+    const expiry = document.getElementById("card-expiry").value.trim();
+    const ccv = document.getElementById("card-ccv").value.trim();
+    const phone = document.getElementById("subscribe-phone").value.trim();
+    const err = document.getElementById("subscribe-error");
+    const ok = document.getElementById("subscribe-message");
+
+    err.textContent = "";
+    ok.textContent = "";
+
+    if (!isValidCardNumber(cardNumber)) {
+        err.textContent = "Номер картки має містити 12 цифр.";
+        return;
+    }
+    if (!isValidExpiry(expiry)) {
+        err.textContent = "Термін дії вкажіть у форматі MM/YY.";
+        return;
+    }
+    if (!isValidCCV(ccv)) {
+        err.textContent = "CCV має складатись з 3 цифр.";
+        return;
+    }
+    if (!isValidPhone(phone)) {
+        err.textContent = "Вкажіть коректний номер телефону.";
+        return;
+    }
+
+    const enrolledMap = getEnrolledCourses();
+    const userCourses = enrolledMap[user.name] || [];
+    const already = userCourses.find(c => c.courseId === currentCourseSelection.courseId);
+    if (!already) {
+        userCourses.push({
+            courseId: currentCourseSelection.courseId,
+            title: currentCourseSelection.title,
+            meta: currentCourseSelection.meta
+        });
+        enrolledMap[user.name] = userCourses;
+        saveEnrolledCourses(enrolledMap);
+    }
+
+    ok.textContent = "Ви будете зареєстровані на курс. Успішно!";
+    renderMyCourses();
+});
+
 (function initAuth() {
     const user = getLoggedUser();
     if (user && user.name) {
@@ -1171,6 +1479,12 @@ function fillList(listEl, items) {
 function openCourseDetail(courseId, category, levelLabel) {
     const data = COURSE_DATA[courseId];
     if (!data) return;
+
+    currentCourseSelection = {
+        courseId,
+        title: data.title,
+        meta: `${data.categoryLabel}${levelLabel ? " • " + levelLabel : ""}`
+    };
 
     hideAllMainSections();
     courseDetailTitle.textContent = data.title;

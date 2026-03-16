@@ -1020,6 +1020,49 @@ body.no-scroll {
     gap: 12px;
 }
 
+.profile-panel {
+    width: 520px;
+    max-width: calc(100vw - 30px);
+}
+
+.success-text {
+    margin-top: 12px;
+    color: #7dffb2;
+    min-height: 20px;
+    font-weight: 600;
+}
+
+.success-text.error-mode {
+    color: #ff8a8a;
+}
+
+.my-courses-list {
+    margin-top: 16px;
+    display: grid;
+    gap: 10px;
+}
+
+.my-course-item {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    padding: 12px;
+    display: grid;
+    gap: 4px;
+}
+
+.my-course-item span {
+    color: #c7d2df;
+    font-size: 14px;
+}
+
+.empty-note {
+    color: #c7d2df;
+    background: rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 14px;
+}
+
 .course-detail-page {
     padding: 110px 0 80px;
 }
@@ -1072,6 +1115,14 @@ body.no-scroll {
     line-height: 1.65;
     margin: 18px 0 26px;
     max-width: 900px;
+}
+
+.course-detail-actions {
+    margin-bottom: 20px;
+}
+
+.course-subscribe-btn {
+    max-width: 280px;
 }
 .course-detail-grid {
     display: grid;
