@@ -17,26 +17,54 @@
             <nav class="main-nav">
                 <div class="nav-item">
                     <a href="#">Курси <span class="arrow">▾</span></a>
-                    <div class="dropdown">
-                        <a href="#">HTML і CSS</a>
-                        <a href="#">Python</a>
-                        <a href="#">C++</a>
-                        <a href="#">Soft skils</a>
-                        <a href="#">Дизайн</a>
-                        <a href="#">Англійська мова</a>
+                    <div class="dropdown header-courses-dropdown">
+                        <div class="dropdown-group-title">Програмування</div>
+                        <button type="button" class="header-course-link" data-category="programming" data-course="java">Java</button>
+                        <button type="button" class="header-course-link" data-category="programming" data-course="python">Python</button>
+                        <button type="button" class="header-course-link" data-category="programming" data-course="cpp">C++</button>
+                        <button type="button" class="header-course-link" data-category="programming" data-course="htmlcss">CSS/HTML</button>
+
+                        <div class="dropdown-group-title">Дизайн</div>
+                        <button type="button" class="header-course-link" data-category="design" data-course="3dsmax">Autodesk 3ds Max</button>
+                        <button type="button" class="header-course-link" data-category="design" data-course="maya">Autodesk Maya</button>
+                        <button type="button" class="header-course-link" data-category="design" data-course="uiux">UI/UX Дизайн</button>
+                        <button type="button" class="header-course-link" data-category="design" data-course="autocad">AutoCAD</button>
+
+                        <div class="dropdown-group-title">Англійська</div>
+                        <button type="button" class="header-course-link" data-category="english" data-course="english-intensive">Розмовний інтенсив</button>
+                        <button type="button" class="header-course-link" data-category="english" data-course="english-grammar">Граматика з нуля</button>
+
+                        <div class="dropdown-group-title">Діти • IT</div>
+                        <button type="button" class="header-course-link" data-category="kids-it" data-course="kids-academy">Мала Комп'ютерна Академія</button>
+                        <button type="button" class="header-course-link" data-category="kids-it" data-course="kids-start">IT-CТАРТ</button>
+                        <button type="button" class="header-course-link" data-category="kids-it" data-course="kids-trial">Пробні уроки</button>
+                        <button type="button" class="header-course-link" data-category="kids-it" data-course="kids-ai">Бізнес Академія з AI</button>
+
+                        <div class="dropdown-group-title">Діти • Soft skills</div>
+                        <button type="button" class="header-course-link" data-category="kids-soft" data-course="kids-leadership">Лідерство та комунікація</button>
+                        <button type="button" class="header-course-link" data-category="kids-soft" data-course="kids-eq">Емоційний інтелект</button>
+                        <button type="button" class="header-course-link" data-category="kids-soft" data-course="kids-team">Командна робота</button>
+                        <button type="button" class="header-course-link" data-category="kids-soft" data-course="kids-speaking">Ораторське мистецтво</button>
                     </div>
                 </div>
 
                 <div class="nav-item">
                     <a href="#">Про академію <span class="arrow">▾</span></a>
                     <div class="dropdown">
-                        <a href="#">Вакансії</a>
-                        <a href="#">Відгуки</a>
-                        <a href="#">Про нас</a>
+                        <a href="#teachers" id="about-teachers-link">Викладачі</a>
+                        <a href=".reviews-section" id="about-reviews-link">Відгуки</a>
+                        <a href="#" id="about-us-link">Про нас</a>
                     </div>
                 </div>
 
-                <div class="nav-item"><a href="#">Контакти</a></div>
+                <div class="nav-item nav-item-contacts">
+                    <a href="#">Контакти</a>
+                    <div class="dropdown contacts-dropdown">
+                        <div class="contact-row">+номер Гасюк Назар</div>
+                        <div class="contact-row">+номер Шемеляк Роман</div>
+                        <div class="contact-row">+номер Грицишин Роман</div>
+                    </div>
+                </div>
             </nav>
         </div>
 
@@ -46,8 +74,9 @@
                 <div class="profile-avatar" id="user-avatar">?</div>
                 <span id="user-display-name">Користувач</span>
                 <div class="dropdown-profile">
-                    <a href="#" class="profile-dropdown-link">Мій профіль</a>
-                    <a href="#" class="profile-dropdown-link">Мої курси</a>
+                    <a href="#" id="profile-open-btn" class="profile-dropdown-link">Мій профіль</a>
+                    <a href="#" id="my-courses-open-btn" class="profile-dropdown-link">Мої курси</a>
+                    <a href="#" id="diplomas-open-btn" class="profile-dropdown-link">Дипломи</a>
                     <a href="#" id="logout-btn" class="profile-dropdown-link">Вийти</a>
                 </div>
             </div>
@@ -235,7 +264,7 @@
                         Якщо у вас є питання про курси або ви не знаєте, що вибрати, залиште свій номер, ми зателефонуємо та детально проконсультуємо.
                     </p>
                     <div class="help-action-wrapper">
-                        <button class="help-submit-btn">Залишити заявку</button>
+                        <button id="open-help-request" class="help-submit-btn">Залишити заявку</button>
                     </div>
                 </div>
                 <div class="help-visuals">
@@ -281,25 +310,25 @@
     </section>
 
     <section id="teachers" class="teachers-section container">
-        <h2 class="section-title">Наші викладачі</h2>
-        <div class="teachers-grid">
-            <div class="teacher-card">
-                <div class="teacher-photo-placeholder"></div>
-                <h3>Гасюк Назар</h3>
-                <p>опис</p>
-            </div>
-            <div class="teacher-card">
-                <div class="teacher-photo-placeholder"></div>
-                <h3>Роман Шемеляк</h3>
-                <p>опис</p>
-            </div>
-            <div class="teacher-card">
-                <div class="teacher-photo-placeholder"></div>
-                <h3>Роман Грицишин</h3>
-                <p>опис</p>
-            </div>
+    <h2 class="section-title">Наші викладачі</h2>
+    <div class="teachers-grid">
+        <div class="teacher-card">
+            <img src="file:///C:/Users/WellDone/Desktop/veb_site-1/nazar-hasiuk.png" alt="Гасюк Назар" class="teacher-photo">
+            <h3>Гасюк Назар</h3>
+            <p>Жоский викладач з досвідом роботи в IT.</p>
         </div>
-    </section>
+        <div class="teacher-card">
+            <img src="file:///C:/Users/WellDone/Desktop/veb_site-1/roman-shemeliak.png" alt="Роман Шемеляк" class="teacher-photo">
+            <h3>Роман Шемеляк</h3>
+            <p>Ілюха Монесi</p>
+        </div>
+        <div class="teacher-card">
+            <img src="file:///C:/Users/WellDone/Desktop/veb_site-1/roman-hrytsyshyn.png" alt="Роман Грицишин" class="teacher-photo">
+            <h3>Роман Грицишин</h3>
+            <p>Чіл бро</p>
+        </div>
+    </div>
+</section>
 
     <section id="benefits" class="benefits-section container">
         <h2 class="section-title">Чому обирають ITveb Academy</h2>
@@ -411,6 +440,7 @@
 
         <form id="form-register" class="auth-form hidden-form">
             <input type="text" id="reg-name" placeholder="Ім'я" required>
+            <input type="text" id="reg-surname" placeholder="Прізвище" required>
             <input type="password" id="reg-password" placeholder="Пароль" required>
             <input type="password" id="reg-password-repeat" placeholder="Повторіть пароль" required>
             <button type="button" class="submit-btn" id="mock-register-submit">Зареєструватись</button>
@@ -456,6 +486,10 @@
                 Опис курсу...
             </div>
 
+            <div class="course-detail-actions">
+                <button type="button" id="course-subscribe-btn" class="submit-btn course-subscribe-btn">Підписатись на курс</button>
+            </div>
+
             <div class="course-detail-grid">
                 <div class="course-detail-box">
                     <h3>Характеристики</h3>
@@ -469,6 +503,93 @@
         </div>
     </div>
 </section>
+
+
+
+<!-- ====== МОДАЛКА: ПРО НАС ====== -->
+<div id="about-us-modal" class="panel-overlay hidden" aria-hidden="true">
+    <div class="panel-card glass-effect profile-panel">
+        <button type="button" class="close-btn modal-close-btn" data-close="#about-us-modal">Назад</button>
+        <h3 class="panel-title">Про ITveb Academy</h3>
+        <div class="about-us-content">
+            <p>ITveb Academy — це навчальна платформа у Львові, де дорослі та діти отримують актуальні IT-навички через практику, менторство та реальні кейси.</p>
+            <p>Наша мета — не просто дати теорію, а допомогти кожному студенту зібрати портфоліо, навчитися працювати в команді й відчути впевненість у своїй професійній траєкторії.</p>
+            <p>Ми постійно оновлюємо програми, запрошуємо викладачів-практиків і підтримуємо студентів від першого заняття до перших карʼєрних результатів.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ====== МОДАЛКА: ЗАЛИШИТИ ЗАЯВКУ ====== -->
+<div id="help-request-modal" class="panel-overlay hidden" aria-hidden="true">
+    <div class="panel-card glass-effect profile-panel">
+        <button type="button" class="close-btn modal-close-btn" data-close="#help-request-modal">Назад</button>
+        <h3 class="panel-title">Залишити заявку</h3>
+        <form id="help-request-form" class="auth-form">
+            <input type="text" id="help-first-name" placeholder="Ім'я" required>
+            <input type="text" id="help-last-name" placeholder="Прізвище" required>
+            <input type="tel" id="help-phone" placeholder="Номер телефону" required>
+            <button type="submit" class="submit-btn">Надіслати заявку</button>
+        </form>
+        <div id="help-request-message" class="success-text"></div>
+    </div>
+</div>
+
+<!-- ====== МОДАЛКА: МІЙ ПРОФІЛЬ ====== -->
+<div id="profile-modal" class="panel-overlay hidden" aria-hidden="true">
+    <div class="panel-card glass-effect profile-panel">
+        <button type="button" class="close-btn modal-close-btn" data-close="#profile-modal">Назад</button>
+        <h3 class="panel-title">Мій профіль</h3>
+        <form id="profile-form" class="auth-form">
+            <input type="text" id="profile-first-name" placeholder="Ім'я" required>
+            <input type="text" id="profile-last-name" placeholder="Прізвище" required>
+            <input type="tel" id="profile-phone" placeholder="Номер телефону">
+            <input type="email" id="profile-email" placeholder="Електронна пошта">
+            <button type="submit" class="submit-btn">Зберегти</button>
+        </form>
+        <div id="profile-message" class="success-text"></div>
+    </div>
+</div>
+
+<!-- ====== МОДАЛКА: МОЇ КУРСИ ====== -->
+<div id="my-courses-modal" class="panel-overlay hidden" aria-hidden="true">
+    <div class="panel-card glass-effect profile-panel">
+        <button type="button" class="close-btn modal-close-btn" data-close="#my-courses-modal">Назад</button>
+        <h3 class="panel-title">Мої курси</h3>
+        <div id="my-courses-list" class="my-courses-list"></div>
+    </div>
+</div>
+
+<!-- ====== МОДАЛКА: ДИПЛОМИ ====== -->
+<div id="diploma-modal" class="panel-overlay hidden" aria-hidden="true">
+    <div class="panel-card glass-effect profile-panel diploma-panel">
+        <button type="button" class="close-btn modal-close-btn" data-close="#diploma-modal">Назад</button>
+        <h3 class="panel-title">Дипломи</h3>
+        <div class="auth-form">
+            <select id="diploma-course-select" class="diploma-select"></select>
+            <button type="button" id="generate-diploma-btn" class="submit-btn">Сформувати диплом</button>
+        </div>
+        <div id="diploma-preview" class="diploma-preview hidden"></div>
+        <div id="diploma-empty" class="empty-note" style="display:none; margin-top:12px;">У вас поки що немає підписок на курси для формування диплома.</div>
+    </div>
+</div>
+
+<!-- ====== МОДАЛКА: ПІДПИСКА НА КУРС ====== -->
+<div id="course-subscribe-modal" class="panel-overlay hidden" aria-hidden="true">
+    <div class="panel-card glass-effect profile-panel">
+        <button type="button" class="close-btn modal-close-btn" data-close="#course-subscribe-modal">Назад</button>
+        <h3 class="panel-title">Оплата та підписка</h3>
+        <form id="course-subscribe-form" class="auth-form">
+            <input type="text" id="card-number" placeholder="Номер картки (16 цифр)" required>
+            <input type="text" id="card-expiry" placeholder="Термін дії (MM/YY)" required>
+            <input type="text" id="card-ccv" placeholder="CCV (3 цифри)" required>
+            <input type="tel" id="subscribe-phone" placeholder="Номер телефону" required>
+            <button type="submit" class="submit-btn">Оплатити і підписатись</button>
+        </form>
+        <div id="subscribe-error" class="error-text"></div>
+        <div id="subscribe-message" class="success-text"></div>
+    </div>
+</div>
+
 
 <script>
 // 1. ШАПКА: з'являється тільки в самому верху (scrollY < 50)
@@ -684,6 +805,25 @@ const closeModalBtn = document.getElementById("close-modal-btn");
 
 const STORAGE_KEY = "itveb_logged_user";
 const USERS_KEY = "itveb_registered_users";
+const ENROLLED_COURSES_KEY = "itveb_enrolled_courses";
+
+const helpRequestBtn = document.getElementById("open-help-request");
+const profileOpenBtn = document.getElementById("profile-open-btn");
+const myCoursesOpenBtn = document.getElementById("my-courses-open-btn");
+const diplomasOpenBtn = document.getElementById("diplomas-open-btn");
+
+const helpRequestModal = document.getElementById("help-request-modal");
+const profileModal = document.getElementById("profile-modal");
+const myCoursesModal = document.getElementById("my-courses-modal");
+const courseSubscribeModal = document.getElementById("course-subscribe-modal");
+const aboutUsModal = document.getElementById("about-us-modal");
+const diplomaModal = document.getElementById("diploma-modal");
+
+let currentCourseSelection = null;
+
+const aboutTeachersLink = document.getElementById("about-teachers-link");
+const aboutReviewsLink = document.getElementById("about-reviews-link");
+const aboutUsLink = document.getElementById("about-us-link");
 
 function getRegisteredUsers() {
     try {
@@ -692,12 +832,30 @@ function getRegisteredUsers() {
     } catch { return []; }
 }
 
-function saveUser(name, password) {
+function saveRegisteredUsers(users) {
+    localStorage.setItem(USERS_KEY, JSON.stringify(users));
+}
+
+function findUserByName(name) {
     const users = getRegisteredUsers();
-    if (!users.find(u => u.name.toLowerCase() === name.toLowerCase())) {
-        users.push({ name, password });
-        localStorage.setItem(USERS_KEY, JSON.stringify(users));
+    return users.find(u => u.name.toLowerCase() === name.toLowerCase()) || null;
+}
+
+function saveUser(profileData) {
+    const users = getRegisteredUsers();
+    const exists = users.find(u => u.name.toLowerCase() === profileData.name.toLowerCase());
+    if (!exists) {
+        users.push(profileData);
+        saveRegisteredUsers(users);
     }
+}
+
+function updateUserByName(oldName, newData) {
+    const users = getRegisteredUsers();
+    const idx = users.findIndex(u => u.name.toLowerCase() === oldName.toLowerCase());
+    if (idx === -1) return;
+    users[idx] = { ...users[idx], ...newData };
+    saveRegisteredUsers(users);
 }
 
 function getLoggedUser() {
@@ -706,12 +864,44 @@ function getLoggedUser() {
     } catch { return null; }
 }
 
-function setLoggedUser(name) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ name }));
+function setLoggedUser(user) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
 }
 
 function clearLoggedUser() {
     localStorage.removeItem(STORAGE_KEY);
+}
+
+function getEnrolledCourses() {
+    try {
+        const data = JSON.parse(localStorage.getItem(ENROLLED_COURSES_KEY) || "{}");
+        return data && typeof data === "object" ? data : {};
+    } catch { return {}; }
+}
+
+function saveEnrolledCourses(data) {
+    localStorage.setItem(ENROLLED_COURSES_KEY, JSON.stringify(data));
+}
+
+function normalizePhone(phone) {
+    return (phone || "").replace(/\s+/g, "").trim();
+}
+
+function isValidPhone(phone) {
+    return /^\+?\d{10,13}$/.test(normalizePhone(phone));
+}
+
+function isValidCardNumber(card) {
+    const normalized = (card || "").replace(/\s+/g, "");
+    return /^\d{16}$/.test(normalized);
+}
+
+function isValidExpiry(exp) {
+    return /^(0[1-9]|1[0-2])\/(\d{2})$/.test((exp || "").trim());
+}
+
+function isValidCCV(ccv) {
+    return /^\d{3}$/.test((ccv || "").trim());
 }
 
 function showProfile(name) {
@@ -741,13 +931,14 @@ function closeAuthModal() {
 
 function handleAuthSuccess(formId) {
     const errEl = document.getElementById("auth-error-message");
-    let userName, password, passwordRepeat;
+    let userName, surname, password, passwordRepeat;
 
     if (formId === "#form-login") {
         userName = document.getElementById("login-name").value.trim();
         password = document.getElementById("login-password").value;
     } else {
         userName = document.getElementById("reg-name").value.trim();
+        surname = document.getElementById("reg-surname").value.trim();
         password = document.getElementById("reg-password").value;
         passwordRepeat = document.getElementById("reg-password-repeat").value;
     }
@@ -757,8 +948,7 @@ function handleAuthSuccess(formId) {
         return;
     }
 
-    const users = getRegisteredUsers();
-    const existing = users.find(u => u.name.toLowerCase() === userName.toLowerCase());
+    const existing = findUserByName(userName);
 
     if (formId === "#form-login") {
         if (!existing) {
@@ -769,7 +959,12 @@ function handleAuthSuccess(formId) {
             errEl.textContent = "Невірний пароль!";
             return;
         }
+        setLoggedUser(existing);
     } else {
+        if (!surname) {
+            errEl.textContent = "Вкажіть прізвище!";
+            return;
+        }
         if (password.length < 4) {
             errEl.textContent = "Пароль має бути мінімум 4 символи!";
             return;
@@ -778,11 +973,17 @@ function handleAuthSuccess(formId) {
             errEl.textContent = "Паролі не співпадають!";
             return;
         }
-        saveUser(userName, password);
+        if (existing) {
+            errEl.textContent = "Користувач з таким ім'ям вже існує!";
+            return;
+        }
+
+        const newUser = { name: userName, surname, password, phone: "", email: "" };
+        saveUser(newUser);
+        setLoggedUser(newUser);
     }
 
     errEl.textContent = "";
-    setLoggedUser(userName);
     authModal.classList.add("modal-closing");
     setTimeout(() => {
         closeAuthModal();
@@ -790,9 +991,139 @@ function handleAuthSuccess(formId) {
         mainAuthBtn.classList.add("fade-out");
         setTimeout(() => {
             mainAuthBtn.classList.remove("fade-out");
-            showProfile(userName);
+            const logged = getLoggedUser();
+            showProfile(logged?.name || userName);
         }, 300);
     }, 320);
+}
+
+function openGenericModal(modalEl) {
+    if (!modalEl) return;
+    openOverlay(modalEl);
+}
+
+function closeGenericModal(modalEl) {
+    if (!modalEl) return;
+    closeOverlay(modalEl);
+}
+
+function requireLoginOrShowAuth() {
+    const user = getLoggedUser();
+    if (!user || !user.name) {
+        openAuthModal();
+        return null;
+    }
+    return user;
+}
+
+function renderMyCourses() {
+    const list = document.getElementById("my-courses-list");
+    const user = getLoggedUser();
+    if (!list || !user) return;
+    const enrolledMap = getEnrolledCourses();
+    const userCourses = enrolledMap[user.name] || [];
+
+    if (!userCourses.length) {
+        list.innerHTML = '<div class="empty-note">Поки що ви не підписані на жоден курс.</div>';
+        return;
+    }
+
+    list.innerHTML = userCourses.map(c => `<div class="my-course-item"><strong>${c.title}</strong><span>${c.meta}</span></div>`).join("");
+}
+
+function openProfileModal() {
+    const user = requireLoginOrShowAuth();
+    if (!user) return;
+
+    document.getElementById("profile-first-name").value = user.name || "";
+    document.getElementById("profile-last-name").value = user.surname || "";
+    document.getElementById("profile-phone").value = user.phone || "";
+    document.getElementById("profile-email").value = user.email || "";
+    document.getElementById("profile-message").textContent = "";
+    openGenericModal(profileModal);
+}
+
+function openMyCoursesModal() {
+    const user = requireLoginOrShowAuth();
+    if (!user) return;
+    renderMyCourses();
+    openGenericModal(myCoursesModal);
+}
+
+function openDiplomaModal() {
+    const user = requireLoginOrShowAuth();
+    if (!user) return;
+
+    const select = document.getElementById("diploma-course-select");
+    const empty = document.getElementById("diploma-empty");
+    const preview = document.getElementById("diploma-preview");
+    const map = getEnrolledCourses();
+    const courses = map[user.name] || [];
+
+    select.innerHTML = "";
+    preview.classList.add("hidden");
+    preview.innerHTML = "";
+
+    if (!courses.length) {
+        empty.style.display = "block";
+        select.style.display = "none";
+        document.getElementById("generate-diploma-btn").style.display = "none";
+    } else {
+        empty.style.display = "none";
+        select.style.display = "block";
+        document.getElementById("generate-diploma-btn").style.display = "inline-block";
+        courses.forEach(c => {
+            const opt = document.createElement("option");
+            opt.value = c.courseId;
+            opt.textContent = `${c.title} (${c.meta})`;
+            select.appendChild(opt);
+        });
+    }
+
+    openGenericModal(diplomaModal);
+}
+
+function renderDiploma() {
+    const user = requireLoginOrShowAuth();
+    if (!user) return;
+
+    const select = document.getElementById("diploma-course-select");
+    const preview = document.getElementById("diploma-preview");
+    const map = getEnrolledCourses();
+    const courses = map[user.name] || [];
+    const selected = courses.find(c => c.courseId === select.value) || courses[0];
+    if (!selected) return;
+
+    const fullName = `${user.name || ""} ${user.surname || ""}`.trim();
+    const date = new Date().toLocaleDateString('uk-UA');
+
+    preview.innerHTML = `
+        <div class="diploma-card">
+            <div class="diploma-border">
+                <div class="diploma-top">ITveb Academy</div>
+                <h4>СЕРТИФІКАТ ПРО ЗАВЕРШЕННЯ КУРСУ</h4>
+                <p class="diploma-sub">Цим підтверджується, що</p>
+                <div class="diploma-name">${fullName}</div>
+                <p class="diploma-sub">успішно завершив(ла) курс</p>
+                <div class="diploma-course">${selected.title}</div>
+                <div class="diploma-footer">
+                    <span>Дата видачі: ${date}</span>
+                    <span>Підпис: ITveb Academy</span>
+                </div>
+            </div>
+        </div>
+    `;
+    preview.classList.remove("hidden");
+}
+
+function openSubscribeModal() {
+    const user = requireLoginOrShowAuth();
+    if (!user) return;
+    if (!currentCourseSelection) return;
+    document.getElementById("subscribe-error").textContent = "";
+    document.getElementById("subscribe-message").textContent = "";
+    document.getElementById("course-subscribe-form").reset();
+    openGenericModal(courseSubscribeModal);
 }
 
 // Кнопка "Назад" — закриває модалку
@@ -830,10 +1161,8 @@ document.getElementById("mock-register-submit").addEventListener("click", (e) =>
     handleAuthSuccess("#form-register");
 });
 
-// Відкриття модалки по кліку на "Вхід / Реєстрація"
 mainAuthBtn.addEventListener("click", openAuthModal);
 
-// Кнопка "Зареєструватись" у секції переваг
 const benefitsBtn = document.getElementById("open-reg-from-benefits");
 if (benefitsBtn) {
     benefitsBtn.addEventListener("click", () => {
@@ -842,7 +1171,6 @@ if (benefitsBtn) {
     });
 }
 
-// Профіль: випадаюче меню по кліку
 profile.addEventListener("click", function(e) {
     e.stopPropagation();
     const dropdown = this.querySelector(".dropdown-profile");
@@ -850,29 +1178,166 @@ profile.addEventListener("click", function(e) {
     document.querySelectorAll(".dropdown-profile").forEach(d => d.classList.remove("show"));
     if (!isVisible) dropdown.classList.add("show");
 });
+
 document.querySelectorAll(".profile-dropdown-link").forEach(link => {
     link.addEventListener("click", (e) => {
         e.stopPropagation();
         e.preventDefault();
-        if (link.id !== "logout-btn") {
-            link.closest(".dropdown-profile").classList.remove("show");
-        }
+        link.closest(".dropdown-profile")?.classList.remove("show");
     });
 });
+
 window.addEventListener("click", () => {
     document.querySelectorAll(".dropdown-profile").forEach(d => d.classList.remove("show"));
 });
 
-// Вийти
 document.getElementById("logout-btn").addEventListener("click", (e) => {
     e.preventDefault();
     e.stopPropagation();
     clearLoggedUser();
     showLoginBtn();
-    document.querySelector(".dropdown-profile").classList.remove("show");
+    document.querySelector(".dropdown-profile")?.classList.remove("show");
 });
 
-// При завантаженні сторінки: показати профіль, якщо залогінений
+helpRequestBtn?.addEventListener("click", () => {
+    document.getElementById("help-request-message").textContent = "";
+    document.getElementById("help-request-form").reset();
+    openGenericModal(helpRequestModal);
+});
+
+profileOpenBtn?.addEventListener("click", openProfileModal);
+myCoursesOpenBtn?.addEventListener("click", openMyCoursesModal);
+diplomasOpenBtn?.addEventListener("click", openDiplomaModal);
+document.getElementById("generate-diploma-btn")?.addEventListener("click", renderDiploma);
+document.getElementById("course-subscribe-btn")?.addEventListener("click", openSubscribeModal);
+
+document.querySelectorAll('.modal-close-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const selector = btn.dataset.close;
+        const target = selector ? document.querySelector(selector) : null;
+        if (target) closeGenericModal(target);
+    });
+});
+
+function smoothScrollToTarget(selector) {
+    const targetElement = document.querySelector(selector);
+    if (!targetElement) return;
+    const offset = 100;
+    const top = targetElement.getBoundingClientRect().top + window.pageYOffset - offset;
+    window.scrollTo({ top, behavior: 'smooth' });
+}
+
+aboutTeachersLink?.addEventListener('click', (e) => {
+    e.preventDefault();
+    smoothScrollToTarget('#teachers');
+});
+
+aboutReviewsLink?.addEventListener('click', (e) => {
+    e.preventDefault();
+    smoothScrollToTarget('.reviews-section');
+});
+
+aboutUsLink?.addEventListener('click', (e) => {
+    e.preventDefault();
+    openGenericModal(aboutUsModal);
+});
+
+document.getElementById("help-request-form")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const first = document.getElementById("help-first-name").value.trim();
+    const last = document.getElementById("help-last-name").value.trim();
+    const phone = document.getElementById("help-phone").value.trim();
+    const msg = document.getElementById("help-request-message");
+
+    if (!first || !last || !isValidPhone(phone)) {
+        msg.textContent = "Заповніть ім'я, прізвище та коректний номер телефону.";
+        msg.classList.add("error-mode");
+        return;
+    }
+    msg.classList.remove("error-mode");
+    msg.textContent = "Заявка прийнята на обробку, очікуйте.";
+});
+
+document.getElementById("profile-form")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const user = requireLoginOrShowAuth();
+    if (!user) return;
+
+    const name = document.getElementById("profile-first-name").value.trim();
+    const surname = document.getElementById("profile-last-name").value.trim();
+    const phone = document.getElementById("profile-phone").value.trim();
+    const email = document.getElementById("profile-email").value.trim();
+    const msg = document.getElementById("profile-message");
+
+    if (!name || !surname) {
+        msg.textContent = "Ім'я і прізвище обов'язкові.";
+        msg.classList.add("error-mode");
+        return;
+    }
+    if (phone && !isValidPhone(phone)) {
+        msg.textContent = "Невірний формат номера телефону.";
+        msg.classList.add("error-mode");
+        return;
+    }
+
+    const updated = { ...user, name, surname, phone, email };
+    updateUserByName(user.name, updated);
+    setLoggedUser(updated);
+    showProfile(updated.name);
+
+    msg.classList.remove("error-mode");
+    msg.textContent = "Профіль збережено успішно.";
+});
+
+document.getElementById("course-subscribe-form")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const user = requireLoginOrShowAuth();
+    if (!user || !currentCourseSelection) return;
+
+    const cardNumber = document.getElementById("card-number").value.trim();
+    const expiry = document.getElementById("card-expiry").value.trim();
+    const ccv = document.getElementById("card-ccv").value.trim();
+    const phone = document.getElementById("subscribe-phone").value.trim();
+    const err = document.getElementById("subscribe-error");
+    const ok = document.getElementById("subscribe-message");
+
+    err.textContent = "";
+    ok.textContent = "";
+
+    if (!isValidCardNumber(cardNumber)) {
+        err.textContent = "Номер картки має містити 16 цифр (пробіли ігноруються).";
+        return;
+    }
+    if (!isValidExpiry(expiry)) {
+        err.textContent = "Термін дії вкажіть у форматі MM/YY.";
+        return;
+    }
+    if (!isValidCCV(ccv)) {
+        err.textContent = "CCV має складатись з 3 цифр.";
+        return;
+    }
+    if (!isValidPhone(phone)) {
+        err.textContent = "Вкажіть коректний номер телефону.";
+        return;
+    }
+
+    const enrolledMap = getEnrolledCourses();
+    const userCourses = enrolledMap[user.name] || [];
+    const already = userCourses.find(c => c.courseId === currentCourseSelection.courseId);
+    if (!already) {
+        userCourses.push({
+            courseId: currentCourseSelection.courseId,
+            title: currentCourseSelection.title,
+            meta: currentCourseSelection.meta
+        });
+        enrolledMap[user.name] = userCourses;
+        saveEnrolledCourses(enrolledMap);
+    }
+
+    ok.textContent = "Ви будете зареєстровані на курс. Успішно!";
+    renderMyCourses();
+});
+
 (function initAuth() {
     const user = getLoggedUser();
     if (user && user.name) {
@@ -906,7 +1371,7 @@ const COURSE_DATA = {
         title: "Java",
         categoryLabel: "Програмування",
         basePrice: "12 000 грн / курс",
-        description: "Курс Java: від основ до практики. Після завершення зможеш писати застосунки, працювати з ООП та базовими патернами.",
+        description: "Повний курс Java для старту карʼєри: від синтаксису й ООП до створення реального застосунку. На заняттях працюємо з практичними задачами, Git та командним підходом, щоб ти впевнено пройшов першу співбесіду.",
         features: ["Тривалість: 3 місяці", "Формат: офлайн/онлайн", "Домашні завдання: так", "Менторинг: так"],
         outcomes: ["ООП на практиці", "Колекції та винятки", "Базова робота з Git", "Мініпроєкт у портфоліо"]
     },
@@ -914,7 +1379,7 @@ const COURSE_DATA = {
         title: "Python",
         categoryLabel: "Програмування",
         basePrice: "11 000 грн / курс",
-        description: "Python для старту в IT: синтаксис, практика, задачі та мініпроєкти.",
+        description: "Практичний Python з акцентом на реальні кейси: автоматизація, обробка даних і побудова чистого коду. Кожен модуль завершується мініпроєктом, тому ти формуєш портфоліо вже під час навчання.",
         features: ["Тривалість: 2.5 місяці", "Формат: офлайн/онлайн", "Домашні завдання: так", "Практика: 80%"],
         outcomes: ["Основи Python", "Функції та модулі", "Робота з файлами", "Мініпроєкт у портфоліо"]
     },
@@ -922,7 +1387,7 @@ const COURSE_DATA = {
         title: "C++",
         categoryLabel: "Програмування",
         basePrice: "13 000 грн / курс",
-        description: "C++ для розуміння фундаменту програмування: пам’ять, структури даних, ООП та практика.",
+        description: "C++ для сильного технічного фундаменту: робота з памʼяттю, алгоритмами, структурами даних та ООП. Пояснюємо складні теми простими прикладами й закріплюємо все через багато практики.",
         features: ["Тривалість: 3 місяці", "Формат: офлайн", "Домашні завдання: так", "Практика: висока"],
         outcomes: ["Основи C++", "Пам’ять і вказівники", "ООП", "Алгоритмічне мислення"]
     },
@@ -930,7 +1395,7 @@ const COURSE_DATA = {
         title: "HTML / CSS",
         categoryLabel: "Програмування",
         basePrice: "8 000 грн / курс",
-        description: "Верстка сучасних сторінок: flex/grid, адаптивність, практика на макетах.",
+        description: "Курс HTML/CSS для створення сучасних адаптивних сайтів. Освоїш Flexbox, Grid, анімації, роботу з макетами та структуру проєкту так, як це роблять у реальній команді frontend.",
         features: ["Тривалість: 1.5 місяці", "Формат: офлайн/онлайн", "Проєкти: 2+", "Адаптивність: так"],
         outcomes: ["Flexbox/Grid", "Адаптив", "Компонентна верстка", "Лендінг у портфоліо"]
     },
@@ -940,7 +1405,7 @@ const COURSE_DATA = {
         title: "Autodesk 3ds Max",
         categoryLabel: "Дизайн",
         basePrice: "14 000 грн / курс",
-        description: "3D моделювання з нуля: інструменти, сцени та практика.",
+        description: "Autodesk 3ds Max від бази до візуалізації сцени: моделювання, матеріали, освітлення та рендер. Після курсу матимеш готові роботи для портфоліо і чітке розуміння 3D-пайплайну.",
         features: ["Тривалість: 3 місяці", "Формат: офлайн", "Практика: 80%", "Портфоліо: так"],
         outcomes: ["Моделі й сцени", "Матеріали/текстури", "Рендер", "Кейс у портфоліо"]
     },
@@ -948,7 +1413,7 @@ const COURSE_DATA = {
         title: "Autodesk Maya",
         categoryLabel: "Дизайн",
         basePrice: "15 000 грн / курс",
-        description: "3D пайплайн в Maya: моделювання, сцени та базова анімація.",
+        description: "Autodesk Maya для тих, хто хоче працювати з 3D-проєктами професійно. Вивчиш моделювання, UV, текстурування, базову анімацію та побудуєш власний завершений шот.",
         features: ["Тривалість: 3 місяці", "Формат: офлайн", "Практика: висока", "Портфоліо: так"],
         outcomes: ["Моделювання", "Освітлення", "Рендер", "Кейс у портфоліо"]
     },
@@ -956,7 +1421,7 @@ const COURSE_DATA = {
         title: "UI/UX дизайн",
         categoryLabel: "Дизайн",
         basePrice: "12 500 грн / курс",
-        description: "UI/UX: прототипи, дизайн-системи, дослідження та портфоліо.",
+        description: "UI/UX-дизайн з фокусом на практику: дослідження користувачів, прототипування, дизайн-системи та перевірка рішень. На виході — кейс у портфоліо, який можна показувати роботодавцю чи клієнту.",
         features: ["Тривалість: 2.5 місяці", "Формат: офлайн/онлайн", "Проєкти: 2+", "Figma: так"],
         outcomes: ["Wireframes", "UI kit", "Прототип", "Портфоліо кейси"]
     },
@@ -964,7 +1429,7 @@ const COURSE_DATA = {
         title: "Graphic Design",
         categoryLabel: "Дизайн",
         basePrice: "10 500 грн / курс",
-        description: "Графічний дизайн: композиція, колір, типографіка та практика.",
+        description: "Курс AutoCAD і графічного проєктування для впевненої роботи з кресленнями та візуальною подачею. Розбереш інструменти, стандарти й навчишся оформлювати технічні ідеї професійно.",
         features: ["Тривалість: 2 місяці", "Формат: офлайн/онлайн", "Практика: 80%", "Портфоліо: так"],
         outcomes: ["Плакати/банери", "Лого базово", "Сітки", "Кейс у портфоліо"]
     },
@@ -974,7 +1439,7 @@ const COURSE_DATA = {
         title: "Англійська для IT",
         categoryLabel: "Англійська",
         basePrice: "6 000 грн / місяць",
-        description: "Технічна англійська для роботи: терміни, спілкування та практика.",
+        description: "English for IT: говоріння, технічна лексика, спілкування в команді та пояснення своїх рішень англійською. Багато speaking-практики на темах, які справді потрібні в роботі.",
         features: ["Рівні: A2–B2", "Формат: онлайн/офлайн", "Розмовна практика: так", "Домашні: так"],
         outcomes: ["IT vocabulary", "Meetings", "Emails", "CV/Interview basics"]
     },
@@ -982,7 +1447,7 @@ const COURSE_DATA = {
         title: "Бізнес англійська",
         categoryLabel: "Англійська",
         basePrice: "6 500 грн / місяць",
-        description: "Business English: презентації, листування, переговори.",
+        description: "Business English для карʼєрного росту: презентації, листування, переговори та впевнена комунікація з клієнтами. Працюємо на живих сценаріях з міжнародного середовища.",
         features: ["Рівні: B1–C1", "Формат: онлайн", "Практика: багато", "Групи: малі"],
         outcomes: ["Presentations", "Negotiations", "Emails", "Business vocabulary"]
     },
@@ -990,7 +1455,7 @@ const COURSE_DATA = {
         title: "Розмовний інтенсив",
         categoryLabel: "Англійська",
         basePrice: "5 500 грн / місяць",
-        description: "Максимум speaking: теми, рольові, практика кожне заняття.",
+        description: "Інтенсив розмовної англійської з постійною практикою на кожному уроці. Менше сухої теорії — більше живих діалогів, рольових вправ і впевненості в розмові.",
         features: ["Формат: онлайн/офлайн", "Speaking: 70%+", "Групи: 6–8", "Тривалість: 1 міс."],
         outcomes: ["Fluency boost", "Pronunciation", "Confidence", "Daily speaking habit"]
     },
@@ -998,7 +1463,7 @@ const COURSE_DATA = {
         title: "Граматика з нуля",
         categoryLabel: "Англійська",
         basePrice: "5 000 грн / місяць",
-        description: "Граматика простими словами: правила + практика.",
+        description: "Граматика з нуля у зрозумілому форматі: короткі правила, відпрацювання і контроль прогресу. Ідеально для тих, хто хоче нарешті структурувати базу і почати говорити без страху.",
         features: ["Рівні: A1–A2", "Формат: онлайн", "Домашні: так", "Тривалість: 1 міс."],
         outcomes: ["Tenses basics", "Sentence building", "Common mistakes", "Exercises"]
     },
@@ -1008,7 +1473,7 @@ const COURSE_DATA = {
         title: "Мала Комп'ютерна Академія",
         categoryLabel: "Діти • IT",
         basePrice: "4 500 грн / місяць",
-        description: "Навчання для дітей: логіка, базові IT-навички та проєкти.",
+        description: "Мала Компʼютерна Академія для дітей: логіка, креатив, основи програмування та цифрові навички через інтерактивні проєкти. Дитина вчиться не просто натискати кнопки, а мислити як творець.",
         features: ["Вік: 8–14", "Формат: офлайн", "Проєкти: так", "Групи: малі"],
         outcomes: ["Логіка", "Базові проєкти", "Комп'ютерна грамотність", "Командна робота"]
     },
@@ -1016,7 +1481,7 @@ const COURSE_DATA = {
         title: "IT-СТАРТ",
         categoryLabel: "Діти • IT",
         basePrice: "4 000 грн / місяць",
-        description: "Підготовка молодших класів: базові навички та цікаві задачі.",
+        description: "IT-СТАРТ для молодших школярів: мʼякий вхід у цифровий світ, розвиток уваги, логіки та базових компʼютерних навичок. Заняття побудовані у форматі гри, щоб дітям було цікаво вчитись.",
         features: ["Вік: 6–9", "Формат: офлайн", "Ігровий формат: так", "Практика: так"],
         outcomes: ["База", "Увага/логіка", "Мініпроєкти", "Навички роботи з ПК"]
     },
@@ -1024,7 +1489,7 @@ const COURSE_DATA = {
         title: "Пробні уроки",
         categoryLabel: "Діти • IT",
         basePrice: "Безкоштовно",
-        description: "Ознайомлення з програмою та форматом навчання.",
+        description: "Пробні уроки, де дитина знайомиться з викладачем, форматом занять і темами курсу. Це безпечний старт, щоб зрозуміти інтерес і обрати найкращий напрямок розвитку.",
         features: ["Тривалість: 1 урок", "Формат: офлайн", "Для батьків: інформація", "Рекомендації: так"],
         outcomes: ["Розуміння формату", "Підбір групи", "План навчання", "Відповіді на питання"]
     },
@@ -1032,7 +1497,7 @@ const COURSE_DATA = {
         title: "Цифровий менеджмент з AI",
         categoryLabel: "Діти • IT",
         basePrice: "5 000 грн / місяць",
-        description: "Цифрові інструменти + основи роботи з AI в навчанні та проєктах.",
+        description: "Курс цифрового менеджменту з AI: сучасні інструменти, командна робота та практичні сценарії використання штучного інтелекту. Підходить підліткам, які хочуть бути на крок попереду.",
         features: ["Вік: 12–16", "Формат: офлайн", "Проєкти: так", "AI інструменти: так"],
         outcomes: ["Digital skills", "AI basics", "Project thinking", "Teamwork"]
     },
@@ -1042,7 +1507,7 @@ const COURSE_DATA = {
         title: "Лідерство та комунікація",
         categoryLabel: "Діти • Soft skills",
         basePrice: "3 500 грн / місяць",
-        description: "Комунікація, лідерство та впевненість.",
+        description: "Практичний курс лідерства для дітей: комунікація, впевненість, робота в групі та вміння відстоювати власну думку екологічно й переконливо.",
         features: ["Вік: 10–16", "Формат: офлайн", "Практика: багато", "Групи: малі"],
         outcomes: ["Public speaking basics", "Комунікація", "Лідерство", "Командні вправи"]
     },
@@ -1050,7 +1515,7 @@ const COURSE_DATA = {
         title: "Емоційний інтелект",
         categoryLabel: "Діти • Soft skills",
         basePrice: "3 500 грн / місяць",
-        description: "Розуміння емоцій та взаємодія з іншими.",
+        description: "Емоційний інтелект у дії: дитина вчиться розуміти себе, керувати емоціями й будувати здорову взаємодію з однолітками та дорослими.",
         features: ["Вік: 10–16", "Формат: офлайн", "Вправи: практичні", "Групи: малі"],
         outcomes: ["Саморефлексія", "Емпатія", "Комунікація", "Конфлікти"]
     },
@@ -1058,7 +1523,7 @@ const COURSE_DATA = {
         title: "Командна робота та проєкти",
         categoryLabel: "Діти • Soft skills",
         basePrice: "3 800 грн / місяць",
-        description: "Працюємо в командах, плануємо та доводимо до результату.",
+        description: "Курс про командну взаємодію: від ідеї до готового мініпроєкту. Діти вчаться планувати, розподіляти ролі, дотримуватися дедлайнів і спільно досягати результату.",
         features: ["Вік: 10–16", "Формат: офлайн", "Проєкти: так", "Навички: практичні"],
         outcomes: ["Планування", "Ролі в команді", "Відповідальність", "Результат"]
     },
@@ -1066,7 +1531,7 @@ const COURSE_DATA = {
         title: "Ораторське мистецтво та YouTube",
         categoryLabel: "Діти • Soft skills",
         basePrice: "4 200 грн / місяць",
-        description: "Виступи, камера, впевненість та базові навички контенту.",
+        description: "Ораторське мистецтво та YouTube: впевнені виступи, робота на камеру, структура подачі і базовий контент-мейкінг. Допомагає дитині говорити сміливо й цікаво.",
         features: ["Вік: 10–16", "Формат: офлайн", "Практика: багато", "Проєкти: так"],
         outcomes: ["Впевненість", "Структура виступу", "Камера", "Мініконтент"]
     }
@@ -1103,10 +1568,9 @@ function hideAllMainSections() {
 }
 
 function showReturnView(viewId) {
-    // Показуємо першу секцію з курсами (дорослі), і потрібний блок
+    // Повертаємо всі секції, які були приховані на сторінці курсу
     const sections = document.querySelectorAll("main.main-content > section");
-    if (sections[0]) sections[0].style.display = ""; // перший course-section (дорослі)
-    if (sections[1]) sections[1].style.display = ""; // другий course-section (діти)
+    sections.forEach(section => section.style.display = "");
 
     const mainCats = document.getElementById("main-categories");
     const kidsCats = document.getElementById("children-categories");
@@ -1145,6 +1609,12 @@ function openCourseDetail(courseId, category, levelLabel) {
     const data = COURSE_DATA[courseId];
     if (!data) return;
 
+    currentCourseSelection = {
+        courseId,
+        title: data.title,
+        meta: `${data.categoryLabel}${levelLabel ? " • " + levelLabel : ""}`
+    };
+
     hideAllMainSections();
     courseDetailTitle.textContent = data.title;
     courseDetailMeta.textContent = `${data.categoryLabel}${levelLabel ? " • " + levelLabel : ""}`;
@@ -1167,14 +1637,8 @@ document.querySelectorAll(".course-item").forEach(card => {
 
         // запам’ятовуємо, куди повертатись
         const parentBlock = card.closest("#programming-courses, #design-courses, #english-courses, #kids-it-courses, #kids-soft-courses");
-        lastCourseReturnView = parentBlock ? parentBlock.id : null;
-
-        if (category === "programming") {
-            pendingProgrammingCourse = { courseId, category };
-            openOverlay(levelModal);
-        } else {
-            openCourseDetail(courseId, category, null);
-        }
+        const returnViewId = parentBlock ? parentBlock.id : null;
+        openCourseFromSource(courseId, category, returnViewId);
     });
 });
 
@@ -1201,6 +1665,25 @@ levelAdvancedBtn.addEventListener("click", () => {
 courseBackBtn.addEventListener("click", () => {
     courseDetailPage.classList.add("hidden");
     showReturnView(lastCourseReturnView);
+});
+
+function openCourseFromSource(courseId, category, returnViewId) {
+    lastCourseReturnView = returnViewId || null;
+    if (category === "programming") {
+        pendingProgrammingCourse = { courseId, category };
+        openOverlay(levelModal);
+        return;
+    }
+    openCourseDetail(courseId, category, null);
+}
+
+document.querySelectorAll('.header-course-link').forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const courseId = button.dataset.course;
+        const category = button.dataset.category;
+        openCourseFromSource(courseId, category, null);
+    });
 });
 </script>
 
