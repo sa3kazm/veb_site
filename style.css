@@ -11,6 +11,8 @@ body {
     color: #ffffff;
     line-height: 1.6;
     overflow-x: hidden;
+    background-image: radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.15), transparent 30%),
+                      radial-gradient(circle at 80% 10%, rgba(168, 85, 247, 0.12), transparent 28%);
 }
 
 .container {
@@ -193,6 +195,34 @@ header {
     display: flex;
     align-items: center;
     margin-top: 65px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    border-radius: 50%;
+    filter: blur(10px);
+    opacity: 0.55;
+    pointer-events: none;
+    animation: floatOrb 11s ease-in-out infinite;
+}
+
+.hero::before {
+    top: 30px;
+    left: 8%;
+    background: radial-gradient(circle, rgba(59,130,246,0.7), rgba(59,130,246,0));
+}
+
+.hero::after {
+    bottom: 20px;
+    right: 6%;
+    background: radial-gradient(circle, rgba(168,85,247,0.65), rgba(168,85,247,0));
+    animation-delay: 1.5s;
 }
 
 .hero-content h1 {
@@ -283,10 +313,26 @@ header {
     justify-content: flex-start;
 }
 
+.course-card::before {
+    content: "";
+    position: absolute;
+    top: -140%;
+    left: -35%;
+    width: 60%;
+    height: 280%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.14), transparent);
+    transform: rotate(20deg);
+    transition: transform 0.7s ease;
+}
+
 .course-card:hover {
     transform: translateY(-15px);
     border-color: #3b82f6;
     box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.course-card:hover::before {
+    transform: translateX(330%) rotate(20deg);
 }
 
 .course-card h3 {
@@ -451,6 +497,12 @@ header {
 .review-card.show {
     display: block;
     animation: slideUp 0.6s ease forwards;
+}
+
+
+@keyframes floatOrb {
+    0%, 100% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-24px) scale(1.07); }
 }
 
 @keyframes slideUp {
@@ -1107,4 +1159,3 @@ body.no-scroll {
         width: 100%;
     }
 }
-
