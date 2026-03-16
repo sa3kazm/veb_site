@@ -17,13 +17,34 @@
             <nav class="main-nav">
                 <div class="nav-item">
                     <a href="#">Курси <span class="arrow">▾</span></a>
-                    <div class="dropdown">
-                        <a href="#">HTML і CSS</a>
-                        <a href="#">Python</a>
-                        <a href="#">C++</a>
-                        <a href="#">Soft skils</a>
-                        <a href="#">Дизайн</a>
-                        <a href="#">Англійська мова</a>
+                    <div class="dropdown header-courses-dropdown">
+                        <div class="dropdown-group-title">Програмування</div>
+                        <button type="button" class="header-course-link" data-category="programming" data-course="java">Java</button>
+                        <button type="button" class="header-course-link" data-category="programming" data-course="python">Python</button>
+                        <button type="button" class="header-course-link" data-category="programming" data-course="cpp">C++</button>
+                        <button type="button" class="header-course-link" data-category="programming" data-course="htmlcss">CSS/HTML</button>
+
+                        <div class="dropdown-group-title">Дизайн</div>
+                        <button type="button" class="header-course-link" data-category="design" data-course="3dsmax">Autodesk 3ds Max</button>
+                        <button type="button" class="header-course-link" data-category="design" data-course="maya">Autodesk Maya</button>
+                        <button type="button" class="header-course-link" data-category="design" data-course="uiux">UI/UX Дизайн</button>
+                        <button type="button" class="header-course-link" data-category="design" data-course="autocad">AutoCAD</button>
+
+                        <div class="dropdown-group-title">Англійська</div>
+                        <button type="button" class="header-course-link" data-category="english" data-course="english-intensive">Розмовний інтенсив</button>
+                        <button type="button" class="header-course-link" data-category="english" data-course="english-grammar">Граматика з нуля</button>
+
+                        <div class="dropdown-group-title">Діти • IT</div>
+                        <button type="button" class="header-course-link" data-category="kids-it" data-course="kids-academy">Мала Комп'ютерна Академія</button>
+                        <button type="button" class="header-course-link" data-category="kids-it" data-course="kids-start">IT-CТАРТ</button>
+                        <button type="button" class="header-course-link" data-category="kids-it" data-course="kids-trial">Пробні уроки</button>
+                        <button type="button" class="header-course-link" data-category="kids-it" data-course="kids-ai">Бізнес Академія з AI</button>
+
+                        <div class="dropdown-group-title">Діти • Soft skills</div>
+                        <button type="button" class="header-course-link" data-category="kids-soft" data-course="kids-leadership">Лідерство та комунікація</button>
+                        <button type="button" class="header-course-link" data-category="kids-soft" data-course="kids-eq">Емоційний інтелект</button>
+                        <button type="button" class="header-course-link" data-category="kids-soft" data-course="kids-team">Командна робота</button>
+                        <button type="button" class="header-course-link" data-category="kids-soft" data-course="kids-speaking">Ораторське мистецтво</button>
                     </div>
                 </div>
 
@@ -36,7 +57,14 @@
                     </div>
                 </div>
 
-                <div class="nav-item"><a href="#">Контакти</a></div>
+                <div class="nav-item nav-item-contacts">
+                    <a href="#">Контакти</a>
+                    <div class="dropdown contacts-dropdown">
+                        <div class="contact-row">+номер Гасюк Назар</div>
+                        <div class="contact-row">+номер Шемеляк Роман</div>
+                        <div class="contact-row">+номер Грицишин Роман</div>
+                    </div>
+                </div>
             </nav>
         </div>
 
@@ -1103,10 +1131,9 @@ function hideAllMainSections() {
 }
 
 function showReturnView(viewId) {
-    // Показуємо першу секцію з курсами (дорослі), і потрібний блок
+    // Повертаємо всі секції, які були приховані на сторінці курсу
     const sections = document.querySelectorAll("main.main-content > section");
-    if (sections[0]) sections[0].style.display = ""; // перший course-section (дорослі)
-    if (sections[1]) sections[1].style.display = ""; // другий course-section (діти)
+    sections.forEach(section => section.style.display = "");
 
     const mainCats = document.getElementById("main-categories");
     const kidsCats = document.getElementById("children-categories");
@@ -1167,14 +1194,8 @@ document.querySelectorAll(".course-item").forEach(card => {
 
         // запам’ятовуємо, куди повертатись
         const parentBlock = card.closest("#programming-courses, #design-courses, #english-courses, #kids-it-courses, #kids-soft-courses");
-        lastCourseReturnView = parentBlock ? parentBlock.id : null;
-
-        if (category === "programming") {
-            pendingProgrammingCourse = { courseId, category };
-            openOverlay(levelModal);
-        } else {
-            openCourseDetail(courseId, category, null);
-        }
+        const returnViewId = parentBlock ? parentBlock.id : null;
+        openCourseFromSource(courseId, category, returnViewId);
     });
 });
 
@@ -1201,6 +1222,25 @@ levelAdvancedBtn.addEventListener("click", () => {
 courseBackBtn.addEventListener("click", () => {
     courseDetailPage.classList.add("hidden");
     showReturnView(lastCourseReturnView);
+});
+
+function openCourseFromSource(courseId, category, returnViewId) {
+    lastCourseReturnView = returnViewId || null;
+    if (category === "programming") {
+        pendingProgrammingCourse = { courseId, category };
+        openOverlay(levelModal);
+        return;
+    }
+    openCourseDetail(courseId, category, null);
+}
+
+document.querySelectorAll('.header-course-link').forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const courseId = button.dataset.course;
+        const category = button.dataset.category;
+        openCourseFromSource(courseId, category, null);
+    });
 });
 </script>
 
