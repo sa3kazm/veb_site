@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uk">
 <head>
     <meta charset="UTF-8">
@@ -102,19 +102,19 @@
         <button id="btn-back-categories" class="back-btn">← Назад до категорій</button>
         
         <div class="course-grid">
-            <div class="course-card">
+            <div class="course-card course-item" data-category="programming" data-course="java">
                 <h3>Java</h3>
                 <div class="course-emoji">☕</div>
             </div>
-            <div class="course-card">
+            <div class="course-card course-item" data-category="programming" data-course="python">
                 <h3>Python</h3>
                 <div class="course-emoji">🐍</div>
             </div>
-            <div class="course-card">
+            <div class="course-card course-item" data-category="programming" data-course="cpp">
                 <h3>C++</h3>
                 <div class="course-emoji">⚙️</div>
             </div>
-            <div class="course-card">
+            <div class="course-card course-item" data-category="programming" data-course="htmlcss">
                 <h3>CSS/HTML</h3>
                 <div class="course-emoji">🌐</div>
             </div>
@@ -124,19 +124,19 @@
         <button id="btn-back-design" class="back-btn">← Назад до категорій</button>
         
         <div class="course-grid">
-            <div class="course-card">
+            <div class="course-card course-item" data-category="design" data-course="3dsmax">
                 <h3>Autodesk 3ds Max</h3>
                 <div class="course-emoji">🧊</div>
             </div>
-            <div class="course-card">
+            <div class="course-card course-item" data-category="design" data-course="maya">
                 <h3>Autodesk Maya</h3>
                 <div class="course-emoji">🎬</div>
             </div>
-            <div class="course-card">
+            <div class="course-card course-item" data-category="design" data-course="uiux">
                 <h3>UI/UX дизайн</h3>
                 <div class="course-emoji">📱</div>
             </div>
-            <div class="course-card">
+            <div class="course-card course-item" data-category="design" data-course="graphic">
                 <h3>Graphic Design</h3>
                 <div class="course-emoji">🎨</div>
             </div>
@@ -146,19 +146,19 @@
         <button id="btn-back-english" class="back-btn">← Назад до категорій</button>
         
         <div class="course-grid">
-            <div class="course-card">
+            <div class="course-card course-item" data-category="english" data-course="english-it">
                 <h3>Англійська для IT</h3>
                 <div class="course-emoji">💻</div>
             </div>
-            <div class="course-card">
+            <div class="course-card course-item" data-category="english" data-course="english-business">
                 <h3>Бізнес англійська</h3>
                 <div class="course-emoji">💼</div>
             </div>
-            <div class="course-card">
+            <div class="course-card course-item" data-category="english" data-course="english-intensive">
                 <h3>Розмовний інтенсив</h3>
                 <div class="course-emoji">🗣️</div>
             </div>
-            <div class="course-card">
+            <div class="course-card course-item" data-category="english" data-course="english-grammar">
                 <h3>Граматика з нуля</h3>
                 <div class="course-emoji">📚</div>
             </div>
@@ -184,19 +184,19 @@
             <button id="btn-back-kids-it" class="back-btn">← Назад до категорій</button>
             
             <div class="course-grid">
-                <div class="course-card">
+                <div class="course-card course-item" data-category="kids-it" data-course="kids-academy">
                     <h3>Мала Комп'ютерна Академія</h3>
                     <div class="course-emoji">🎓</div>
                 </div>
-                <div class="course-card">
+                <div class="course-card course-item" data-category="kids-it" data-course="kids-start">
                     <h3>IT-CТАРТ - підготовка початкових класів</h3>
                     <div class="course-emoji">🚀</div>
                 </div>
-                <div class="course-card">
+                <div class="course-card course-item" data-category="kids-it" data-course="kids-trial">
                     <h3>Комп'ютерна Академія - пробні уроки</h3>
                     <div class="course-emoji">🕹️</div>
                 </div>
-                <div class="course-card">
+                <div class="course-card course-item" data-category="kids-it" data-course="kids-ai">
                     <h3>Бізнес Академія: Цифровий менеджмент з AI</h3>
                     <div class="course-emoji">🤖</div>
                 </div>
@@ -206,19 +206,19 @@
         <button id="btn-back-kids-soft" class="back-btn">← Назад до категорій</button>
         
         <div class="course-grid">
-            <div class="course-card">
+            <div class="course-card course-item" data-category="kids-soft" data-course="kids-leadership">
                 <h3>Лідерство та комунікація</h3>
                 <div class="course-emoji">👑</div>
             </div>
-            <div class="course-card">
+            <div class="course-card course-item" data-category="kids-soft" data-course="kids-eq">
                 <h3>Емоційний інтелект</h3>
                 <div class="course-emoji">🧠</div>
             </div>
-            <div class="course-card">
+            <div class="course-card course-item" data-category="kids-soft" data-course="kids-team">
                 <h3>Командна робота та проєкти</h3>
                 <div class="course-emoji">🤝</div>
             </div>
-            <div class="course-card">
+            <div class="course-card course-item" data-category="kids-soft" data-course="kids-speaking">
                 <h3>Ораторське мистецтво та YouTube</h3>
                 <div class="course-emoji">🎤</div>
             </div>
@@ -422,6 +422,53 @@
 
 
 </main>
+
+<!-- ====== МОДАЛКА ВИБОРУ РІВНЯ (тільки для Програмування) ====== -->
+<div id="level-modal" class="panel-overlay hidden" aria-hidden="true">
+    <div class="panel-card glass-effect">
+        <button type="button" id="level-back-btn" class="close-btn">Назад</button>
+        <h3 class="panel-title">Оберіть рівень</h3>
+        <p class="panel-subtitle">Потрібно для курсів з напрямку «Програмування».</p>
+        <div class="panel-actions">
+            <button type="button" id="level-beginner-btn" class="submit-btn">Для початківців</button>
+            <button type="button" id="level-advanced-btn" class="submit-btn">Для знатків</button>
+        </div>
+    </div>
+</div>
+
+<!-- ====== СТОРІНКА КУРСУ (показуємо замість всього контенту) ====== -->
+<section id="course-detail-page" class="course-detail-page hidden">
+    <div class="container">
+        <button type="button" id="course-back-btn" class="back-btn">← Назад</button>
+        <div class="course-detail-card">
+            <div class="course-detail-header">
+                <div>
+                    <h2 id="course-detail-title" class="course-detail-title">Назва курсу</h2>
+                    <div id="course-detail-meta" class="course-detail-meta">Категорія • Рівень</div>
+                </div>
+                <div class="course-detail-price">
+                    <div class="course-detail-price-label">Ціна</div>
+                    <div id="course-detail-price" class="course-detail-price-value">—</div>
+                </div>
+            </div>
+
+            <div id="course-detail-description" class="course-detail-description">
+                Опис курсу...
+            </div>
+
+            <div class="course-detail-grid">
+                <div class="course-detail-box">
+                    <h3>Характеристики</h3>
+                    <ul id="course-detail-features" class="course-detail-list"></ul>
+                </div>
+                <div class="course-detail-box">
+                    <h3>Що отримаєш</h3>
+                    <ul id="course-detail-outcomes" class="course-detail-list"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <script>
 // 1. ШАПКА: з'являється тільки в самому верху (scrollY < 50)
@@ -834,6 +881,327 @@ document.getElementById("logout-btn").addEventListener("click", (e) => {
         showLoginBtn();
     }
 })();
+
+// ========== КУРСИ: вибір рівня (Програмування) + сторінка опису ==========
+const levelModal = document.getElementById("level-modal");
+const levelBackBtn = document.getElementById("level-back-btn");
+const levelBeginnerBtn = document.getElementById("level-beginner-btn");
+const levelAdvancedBtn = document.getElementById("level-advanced-btn");
+
+const courseDetailPage = document.getElementById("course-detail-page");
+const courseBackBtn = document.getElementById("course-back-btn");
+const courseDetailTitle = document.getElementById("course-detail-title");
+const courseDetailMeta = document.getElementById("course-detail-meta");
+const courseDetailPrice = document.getElementById("course-detail-price");
+const courseDetailDescription = document.getElementById("course-detail-description");
+const courseDetailFeatures = document.getElementById("course-detail-features");
+const courseDetailOutcomes = document.getElementById("course-detail-outcomes");
+
+let pendingProgrammingCourse = null; // { courseId, category }
+let lastCourseReturnView = null; // "programming-courses" | "design-courses" | ...
+
+const COURSE_DATA = {
+    // Programming
+    java: {
+        title: "Java",
+        categoryLabel: "Програмування",
+        basePrice: "12 000 грн / курс",
+        description: "Курс Java: від основ до практики. Після завершення зможеш писати застосунки, працювати з ООП та базовими патернами.",
+        features: ["Тривалість: 3 місяці", "Формат: офлайн/онлайн", "Домашні завдання: так", "Менторинг: так"],
+        outcomes: ["ООП на практиці", "Колекції та винятки", "Базова робота з Git", "Мініпроєкт у портфоліо"]
+    },
+    python: {
+        title: "Python",
+        categoryLabel: "Програмування",
+        basePrice: "11 000 грн / курс",
+        description: "Python для старту в IT: синтаксис, практика, задачі та мініпроєкти.",
+        features: ["Тривалість: 2.5 місяці", "Формат: офлайн/онлайн", "Домашні завдання: так", "Практика: 80%"],
+        outcomes: ["Основи Python", "Функції та модулі", "Робота з файлами", "Мініпроєкт у портфоліо"]
+    },
+    cpp: {
+        title: "C++",
+        categoryLabel: "Програмування",
+        basePrice: "13 000 грн / курс",
+        description: "C++ для розуміння фундаменту програмування: пам’ять, структури даних, ООП та практика.",
+        features: ["Тривалість: 3 місяці", "Формат: офлайн", "Домашні завдання: так", "Практика: висока"],
+        outcomes: ["Основи C++", "Пам’ять і вказівники", "ООП", "Алгоритмічне мислення"]
+    },
+    htmlcss: {
+        title: "HTML / CSS",
+        categoryLabel: "Програмування",
+        basePrice: "8 000 грн / курс",
+        description: "Верстка сучасних сторінок: flex/grid, адаптивність, практика на макетах.",
+        features: ["Тривалість: 1.5 місяці", "Формат: офлайн/онлайн", "Проєкти: 2+", "Адаптивність: так"],
+        outcomes: ["Flexbox/Grid", "Адаптив", "Компонентна верстка", "Лендінг у портфоліо"]
+    },
+
+    // Design
+    "3dsmax": {
+        title: "Autodesk 3ds Max",
+        categoryLabel: "Дизайн",
+        basePrice: "14 000 грн / курс",
+        description: "3D моделювання з нуля: інструменти, сцени та практика.",
+        features: ["Тривалість: 3 місяці", "Формат: офлайн", "Практика: 80%", "Портфоліо: так"],
+        outcomes: ["Моделі й сцени", "Матеріали/текстури", "Рендер", "Кейс у портфоліо"]
+    },
+    maya: {
+        title: "Autodesk Maya",
+        categoryLabel: "Дизайн",
+        basePrice: "15 000 грн / курс",
+        description: "3D пайплайн в Maya: моделювання, сцени та базова анімація.",
+        features: ["Тривалість: 3 місяці", "Формат: офлайн", "Практика: висока", "Портфоліо: так"],
+        outcomes: ["Моделювання", "Освітлення", "Рендер", "Кейс у портфоліо"]
+    },
+    uiux: {
+        title: "UI/UX дизайн",
+        categoryLabel: "Дизайн",
+        basePrice: "12 500 грн / курс",
+        description: "UI/UX: прототипи, дизайн-системи, дослідження та портфоліо.",
+        features: ["Тривалість: 2.5 місяці", "Формат: офлайн/онлайн", "Проєкти: 2+", "Figma: так"],
+        outcomes: ["Wireframes", "UI kit", "Прототип", "Портфоліо кейси"]
+    },
+    graphic: {
+        title: "Graphic Design",
+        categoryLabel: "Дизайн",
+        basePrice: "10 500 грн / курс",
+        description: "Графічний дизайн: композиція, колір, типографіка та практика.",
+        features: ["Тривалість: 2 місяці", "Формат: офлайн/онлайн", "Практика: 80%", "Портфоліо: так"],
+        outcomes: ["Плакати/банери", "Лого базово", "Сітки", "Кейс у портфоліо"]
+    },
+
+    // English
+    "english-it": {
+        title: "Англійська для IT",
+        categoryLabel: "Англійська",
+        basePrice: "6 000 грн / місяць",
+        description: "Технічна англійська для роботи: терміни, спілкування та практика.",
+        features: ["Рівні: A2–B2", "Формат: онлайн/офлайн", "Розмовна практика: так", "Домашні: так"],
+        outcomes: ["IT vocabulary", "Meetings", "Emails", "CV/Interview basics"]
+    },
+    "english-business": {
+        title: "Бізнес англійська",
+        categoryLabel: "Англійська",
+        basePrice: "6 500 грн / місяць",
+        description: "Business English: презентації, листування, переговори.",
+        features: ["Рівні: B1–C1", "Формат: онлайн", "Практика: багато", "Групи: малі"],
+        outcomes: ["Presentations", "Negotiations", "Emails", "Business vocabulary"]
+    },
+    "english-intensive": {
+        title: "Розмовний інтенсив",
+        categoryLabel: "Англійська",
+        basePrice: "5 500 грн / місяць",
+        description: "Максимум speaking: теми, рольові, практика кожне заняття.",
+        features: ["Формат: онлайн/офлайн", "Speaking: 70%+", "Групи: 6–8", "Тривалість: 1 міс."],
+        outcomes: ["Fluency boost", "Pronunciation", "Confidence", "Daily speaking habit"]
+    },
+    "english-grammar": {
+        title: "Граматика з нуля",
+        categoryLabel: "Англійська",
+        basePrice: "5 000 грн / місяць",
+        description: "Граматика простими словами: правила + практика.",
+        features: ["Рівні: A1–A2", "Формат: онлайн", "Домашні: так", "Тривалість: 1 міс."],
+        outcomes: ["Tenses basics", "Sentence building", "Common mistakes", "Exercises"]
+    },
+
+    // Kids IT
+    "kids-academy": {
+        title: "Мала Комп'ютерна Академія",
+        categoryLabel: "Діти • IT",
+        basePrice: "4 500 грн / місяць",
+        description: "Навчання для дітей: логіка, базові IT-навички та проєкти.",
+        features: ["Вік: 8–14", "Формат: офлайн", "Проєкти: так", "Групи: малі"],
+        outcomes: ["Логіка", "Базові проєкти", "Комп'ютерна грамотність", "Командна робота"]
+    },
+    "kids-start": {
+        title: "IT-СТАРТ",
+        categoryLabel: "Діти • IT",
+        basePrice: "4 000 грн / місяць",
+        description: "Підготовка молодших класів: базові навички та цікаві задачі.",
+        features: ["Вік: 6–9", "Формат: офлайн", "Ігровий формат: так", "Практика: так"],
+        outcomes: ["База", "Увага/логіка", "Мініпроєкти", "Навички роботи з ПК"]
+    },
+    "kids-trial": {
+        title: "Пробні уроки",
+        categoryLabel: "Діти • IT",
+        basePrice: "Безкоштовно",
+        description: "Ознайомлення з програмою та форматом навчання.",
+        features: ["Тривалість: 1 урок", "Формат: офлайн", "Для батьків: інформація", "Рекомендації: так"],
+        outcomes: ["Розуміння формату", "Підбір групи", "План навчання", "Відповіді на питання"]
+    },
+    "kids-ai": {
+        title: "Цифровий менеджмент з AI",
+        categoryLabel: "Діти • IT",
+        basePrice: "5 000 грн / місяць",
+        description: "Цифрові інструменти + основи роботи з AI в навчанні та проєктах.",
+        features: ["Вік: 12–16", "Формат: офлайн", "Проєкти: так", "AI інструменти: так"],
+        outcomes: ["Digital skills", "AI basics", "Project thinking", "Teamwork"]
+    },
+
+    // Kids Soft
+    "kids-leadership": {
+        title: "Лідерство та комунікація",
+        categoryLabel: "Діти • Soft skills",
+        basePrice: "3 500 грн / місяць",
+        description: "Комунікація, лідерство та впевненість.",
+        features: ["Вік: 10–16", "Формат: офлайн", "Практика: багато", "Групи: малі"],
+        outcomes: ["Public speaking basics", "Комунікація", "Лідерство", "Командні вправи"]
+    },
+    "kids-eq": {
+        title: "Емоційний інтелект",
+        categoryLabel: "Діти • Soft skills",
+        basePrice: "3 500 грн / місяць",
+        description: "Розуміння емоцій та взаємодія з іншими.",
+        features: ["Вік: 10–16", "Формат: офлайн", "Вправи: практичні", "Групи: малі"],
+        outcomes: ["Саморефлексія", "Емпатія", "Комунікація", "Конфлікти"]
+    },
+    "kids-team": {
+        title: "Командна робота та проєкти",
+        categoryLabel: "Діти • Soft skills",
+        basePrice: "3 800 грн / місяць",
+        description: "Працюємо в командах, плануємо та доводимо до результату.",
+        features: ["Вік: 10–16", "Формат: офлайн", "Проєкти: так", "Навички: практичні"],
+        outcomes: ["Планування", "Ролі в команді", "Відповідальність", "Результат"]
+    },
+    "kids-speaking": {
+        title: "Ораторське мистецтво та YouTube",
+        categoryLabel: "Діти • Soft skills",
+        basePrice: "4 200 грн / місяць",
+        description: "Виступи, камера, впевненість та базові навички контенту.",
+        features: ["Вік: 10–16", "Формат: офлайн", "Практика: багато", "Проєкти: так"],
+        outcomes: ["Впевненість", "Структура виступу", "Камера", "Мініконтент"]
+    }
+};
+
+function openOverlay(el) {
+    el.classList.remove("hidden");
+    el.classList.remove("modal-closing");
+    document.body.classList.add("no-scroll");
+}
+
+function closeOverlay(el, onClosed) {
+    el.classList.add("modal-closing");
+    setTimeout(() => {
+        el.classList.add("hidden");
+        el.classList.remove("modal-closing");
+        document.body.classList.remove("no-scroll");
+        if (typeof onClosed === "function") onClosed();
+    }, 320);
+}
+
+function hideAllMainSections() {
+    document.querySelectorAll("main.main-content > section").forEach(sec => sec.style.display = "none");
+    // також ховаємо вкладені блоки курсів, якщо були відкриті
+    ["programming-courses","design-courses","english-courses","kids-it-courses","kids-soft-courses"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = "none";
+    });
+    // повертаємо головні категорії/дитячі категорії (використаємо при поверненні)
+    const mainCats = document.getElementById("main-categories");
+    if (mainCats) mainCats.style.display = "none";
+    const kidsCats = document.getElementById("children-categories");
+    if (kidsCats) kidsCats.style.display = "none";
+}
+
+function showReturnView(viewId) {
+    // Показуємо першу секцію з курсами (дорослі), і потрібний блок
+    const sections = document.querySelectorAll("main.main-content > section");
+    if (sections[0]) sections[0].style.display = ""; // перший course-section (дорослі)
+    if (sections[1]) sections[1].style.display = ""; // другий course-section (діти)
+
+    const mainCats = document.getElementById("main-categories");
+    const kidsCats = document.getElementById("children-categories");
+
+    // дефолт: показати головні категорії дорослих
+    if (mainCats) mainCats.style.display = "grid";
+    if (kidsCats) kidsCats.style.display = "grid";
+
+    if (viewId) {
+        // якщо це один з блоків курсів — показуємо його
+        const block = document.getElementById(viewId);
+        if (block) {
+            // визначаємо чи це дорослі чи діти
+            if (["programming-courses","design-courses","english-courses"].includes(viewId)) {
+                if (mainCats) mainCats.style.display = "none";
+            } else {
+                if (kidsCats) kidsCats.style.display = "none";
+            }
+            block.style.display = "block";
+            block.classList.add("fade-in-section");
+            setTimeout(() => block.classList.remove("fade-in-section"), 450);
+        }
+    }
+}
+
+function fillList(listEl, items) {
+    listEl.innerHTML = "";
+    (items || []).forEach(text => {
+        const li = document.createElement("li");
+        li.textContent = text;
+        listEl.appendChild(li);
+    });
+}
+
+function openCourseDetail(courseId, category, levelLabel) {
+    const data = COURSE_DATA[courseId];
+    if (!data) return;
+
+    hideAllMainSections();
+    courseDetailTitle.textContent = data.title;
+    courseDetailMeta.textContent = `${data.categoryLabel}${levelLabel ? " • " + levelLabel : ""}`;
+    courseDetailPrice.textContent = data.basePrice || "—";
+    courseDetailDescription.textContent = data.description || "";
+    fillList(courseDetailFeatures, data.features);
+    fillList(courseDetailOutcomes, data.outcomes);
+
+    courseDetailPage.classList.remove("hidden");
+    courseDetailPage.classList.add("fade-in-section");
+    setTimeout(() => courseDetailPage.classList.remove("fade-in-section"), 450);
+}
+
+// Клік по будь-якому курсу
+document.querySelectorAll(".course-item").forEach(card => {
+    card.addEventListener("click", () => {
+        const category = card.dataset.category;
+        const courseId = card.dataset.course;
+        if (!courseId) return;
+
+        // запам’ятовуємо, куди повертатись
+        const parentBlock = card.closest("#programming-courses, #design-courses, #english-courses, #kids-it-courses, #kids-soft-courses");
+        lastCourseReturnView = parentBlock ? parentBlock.id : null;
+
+        if (category === "programming") {
+            pendingProgrammingCourse = { courseId, category };
+            openOverlay(levelModal);
+        } else {
+            openCourseDetail(courseId, category, null);
+        }
+    });
+});
+
+// Вибір рівня (тільки programming)
+levelBackBtn.addEventListener("click", () => closeOverlay(levelModal));
+levelBeginnerBtn.addEventListener("click", () => {
+    if (!pendingProgrammingCourse) return;
+    const { courseId, category } = pendingProgrammingCourse;
+    pendingProgrammingCourse = null;
+    closeOverlay(levelModal, () => {
+        openCourseDetail(courseId, category, "Початківці");
+    });
+});
+levelAdvancedBtn.addEventListener("click", () => {
+    if (!pendingProgrammingCourse) return;
+    const { courseId, category } = pendingProgrammingCourse;
+    pendingProgrammingCourse = null;
+    closeOverlay(levelModal, () => {
+        openCourseDetail(courseId, category, "Знатки");
+    });
+});
+
+// Назад зі сторінки курсу
+courseBackBtn.addEventListener("click", () => {
+    courseDetailPage.classList.add("hidden");
+    showReturnView(lastCourseReturnView);
+});
 </script>
 
 
