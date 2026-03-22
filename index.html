@@ -17,6 +17,9 @@
             <a href="#" class="logo-link">
                 <img src="logo.png" alt="ITveb Academy Logo" class="main-logo">
             </a>
+            <button id="mobile-menu-btn" class="hamburger-btn">
+                <span></span><span></span><span></span>
+            </button>
             <nav class="main-nav">
                 <div class="nav-item">
                     <a href="#">Курси <span class="arrow">▾</span></a>
@@ -1716,6 +1719,50 @@ document.querySelectorAll('.header-course-link').forEach(button => {
         openCourseFromSource(courseId, category, null);
     });
 });
+// ====== ФІКС: Закриття модалок при кліку на фон ======
+document.querySelectorAll('.panel-overlay, .auth-modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+        // Перевіряємо, чи клік був саме по темному фону, а не по самій формі всередині
+        if (e.target === this) {
+            if (this.id === 'auth-modal') {
+                closeAuthModal(); // Використовуємо твою готову функцію
+            } else {
+                closeOverlay(this); // Використовуємо твою готову функцію
+            }
+        }
+    });
+});
+
+// ====== ФІКС: Тільки цифри для реквізитів картки та телефону ======
+const numericInputs = ['card-number', 'card-ccv', 'subscribe-phone'];
+numericInputs.forEach(id => {
+    const input = document.getElementById(id);
+    if(input) {
+        input.addEventListener('input', function() {
+            // Видаляємо все, що не є цифрами
+            this.value = this.value.replace(/\D/g, ''); 
+        });
+    }
+});
+
+// Для терміну дії (MM/YY) дозволяємо цифри та слеш (/)
+const expiryInput = document.getElementById('card-expiry');
+if(expiryInput) {
+    expiryInput.addEventListener('input', function() {
+        this.value = this.value.replace(/[^0-9/]/g, '');
+    });
+}
+
+// ====== ФІКС: Відкриття/закриття мобільного бургер-меню ======
+const mobileBtn = document.getElementById('mobile-menu-btn');
+const mainNav = document.querySelector('.main-nav');
+
+if (mobileBtn && mainNav) {
+    mobileBtn.addEventListener('click', () => {
+        mainNav.classList.toggle('open');
+        mobileBtn.classList.toggle('active');
+    });
+}
 </script>
 
 
