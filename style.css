@@ -1792,6 +1792,7 @@ header {
         .header-right-group {
             width: auto !important;
             margin-left: auto;
+            margin-right: 45px;
         }
         
         .main-logo {
