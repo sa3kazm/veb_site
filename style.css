@@ -1776,4 +1776,64 @@ header {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
     }
+        /* ====== ФІКС КРАСИВОЇ ШАПКИ НА МОБІЛЬНИХ ====== */
+    @media (max-width: 820px) {
+        .header-content {
+            flex-wrap: nowrap !important;
+            position: relative;
+            padding-right: 50px; /* Залишаємо місце для бургера справа */
+        }
+        
+        .header-left-group {
+            width: auto !important;
+            flex-wrap: nowrap !important;
+        }
+        
+        .header-right-group {
+            width: auto !important;
+            margin-left: auto;
+        }
+        
+        .main-logo {
+            height: 48px !important; /* Робимо логотип акуратнішим */
+        }
+        
+        /* Відриваємо бургер від інших елементів і цвяхами прибиваємо до правого краю */
+        .hamburger-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            margin: 0;
+        }
+        
+        .main-nav {
+            top: 68px !important; /* Випадаюче меню буде рівно під шапкою */
+        }
+        
+        .auth-btn-oval {
+            padding: 8px 16px;
+            font-size: 13px;
+        }
+    }
+
+    @media (max-width: 560px) {
+        /* На дуже малих екранах міняємо текст "Вхід / Реєстрація" на просто "Вхід" */
+        .auth-btn-oval {
+            font-size: 0 !important; 
+            padding: 8px 14px;
+        }
+        .auth-btn-oval::after {
+            content: "Вхід";
+            font-size: 14px;
+        }
+        
+        /* Якщо користувач залогінився, залишаємо лише круглу аватарку без довгого імені */
+        #user-display-name {
+            display: none;
+        }
+        .profile-container {
+            padding: 4px !important;
+        }
+    }
 }
